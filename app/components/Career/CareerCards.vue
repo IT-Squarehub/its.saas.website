@@ -41,7 +41,7 @@
                         <span class="bg-green-300 rounded-2xl px-4">Available</span>
                     </p>
                     
-                    <p class=" text-3xl mt-3">
+                    <p class=" text-3xl max-[500px]:text-2xl mt-3">
                         SQL Developer/Admin
                     </p>
 
@@ -53,7 +53,7 @@
 
                     <br>
 
-                    <p class=" text-2xl font-semibold">
+                    <p class=" text-2xl max-[500px]:text-lg font-semibold">
                         <span class="bg-violet-300 rounded-2xl px-4 py-1">
                             Apply Now
                         </span>
@@ -67,7 +67,7 @@
              <!-- Max 800px career cards -->
              <div class="flex flex-col gap-32 mx-16 max-[500px]:mx-5 mt-[-100px]
                         max-[800px]:visible min-[800px]:hidden ">
-                <div class=" bg-teal-100 rounded-3xl shadow-xl p-16 ">
+                <div class=" bg-teal-100 rounded-3xl shadow-xl p-16 max-[500px]:p-6 ">
                     <p class=" text-xl ">
                         <span class="bg-green-300 rounded-2xl px-4">Available</span>
                     </p>
