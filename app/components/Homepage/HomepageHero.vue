@@ -1,4 +1,16 @@
 <script setup lang="ts">
+export interface HomepageHero {
+    hero: {
+        heading: string;
+        image: {
+            asset: {
+                _ref: string;
+                url: string;
+            },
+            alt: string;
+        }
+    }
+}
 
 const query = groq`*[_type == "homepage"][0]{
   hero {
@@ -19,7 +31,7 @@ const { data: heroData, pending, error } = await useSanityQuery<HomepageHero>(qu
 </script>
 
 <template>
- <div class="min-h-screen pt-28 text-center flex flex-col items-center justify-center">
+ <div class="min-h-screen pt-28 text-center flex flex-col items-center justify-center bg-[url('/assets/net-background.png')] bg-cover bg-center">
     <div v-if="pending" class="loading-spinner">
       Loading...
     </div>

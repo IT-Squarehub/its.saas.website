@@ -1,9 +1,10 @@
 <script setup lang="ts">
-
 </script>
 
 <template>
     <div>
-        <Hero />
+        <HomepageHero />
+        <HomepageFeatures />
+        <HomepageBanner />
     </div>
 </template>
