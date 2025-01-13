@@ -3,7 +3,7 @@
 </script>
 
 <template>
-    <div class=" flex gap-8 mt-44">
+    <div class=" flex gap-8 pt-44 bg-violet-300">
         
         <!-- IMG -->
         <div class=" w-1/2">
