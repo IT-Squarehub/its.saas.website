@@ -1,3 +1,7 @@
+<script setup>
+
+</script>
+
 <template>
     <div>
         <!-- Career Hero section -->
