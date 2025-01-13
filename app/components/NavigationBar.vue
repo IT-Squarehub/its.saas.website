@@ -42,7 +42,7 @@
                     <div class="flex space-x-7 text-base justify-center items-center">
                         <NuxtLink to="/">Home</NuxtLink>
                         <NuxtLink :to="{ path: '/', hash: '#services' }">Features</NuxtLink>
-                        <NuxtLink :to="{ path: '/', hash: '#reviews' }">Careers</NuxtLink>
+                        <NuxtLink :to="{ path: '/Career', hash: '#careers' }">Careers</NuxtLink>
                         <NuxtLink :to="{ path: '/', hash: '#reviews' }">Contact Us</NuxtLink>
 
                     </div>
