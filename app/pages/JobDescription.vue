@@ -58,6 +58,21 @@
             </p>
 
             <hr class=" bg-slate-400 pt-1 mr-8">
+
+            <!-- QR Code -->
+            <div class=" flex my-8 gap-8">
+                
+                <!-- QR image -->
+                <div class=" h-32 w-32">
+                    <img src="" alt="">
+                </div>
+
+                <div>
+                    <p class=" text-4xl font-extrabold"> 
+                        SCAN TO APPLY! </p>
+                    <p>We can't wait to see your potential and transform our team together.</p>
+                </div>
+            </div>
         </div>
 
     </div>
