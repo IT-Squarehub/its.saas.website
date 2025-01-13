@@ -30,7 +30,7 @@
 
                     <p class=" text-2xl font-semibold">
                         <span class="bg-violet-300 rounded-2xl px-4 py-1">
-                            Apply Now
+                            <NuxtLink :to="{ path: '/JobDescription', hash: '#jobdesc' }">Apply Now</NuxtLink>
                         </span>
                     </p>
                 </div>
