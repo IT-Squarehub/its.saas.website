@@ -1,4 +1,16 @@
 <script setup lang="ts">
+export interface HomepageHero {
+    hero: {
+        heading: string;
+        image: {
+            asset: {
+                _ref: string;
+                url: string;
+            },
+            alt: string;
+        }
+    }
+}
 
 const query = groq`*[_type == "homepage"][0]{
   hero {
