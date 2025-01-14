@@ -5,18 +5,47 @@ const query = groq`*[_type == "careers"][0]`
 
 const { data: careerData, pending, error } = await useSanityQuery(query)
 
+
 </script>
 
 <template>
     <!-- SHOULD BE IN v-for FOR SANITY IMPLEMENTATION -->
-    <div class=" flex flex-col gap-32">
-        <div class=" flex flex-col gap-32 max-[1200px]:gap-8
+    <div>
+        <div class=" flex flex-col max-w-full gap-16 max-[1200px]:gap-8
                     mx-32 max-[1050px]:mx-8 mt-[-100px] max-[1200px]:mx-32 
                     max-[800px]:hidden">
 
 
             <div v-for="position in careerData.positions" class=" flex gap-32 max-[1200px]:gap-8 ">
-                <div class=" bg-teal-100 rounded-3xl shadow-xl p-16  w-1/2" >
+                <div class=" bg-teal-100 rounded-3xl shadow-xl p-16 w-1/2" >
+                    <p v-if="position.availability" class=" text-xl ">
+                        <span class="bg-green-300 rounded-2xl px-4">Available</span>
+                    </p>
+
+                    <p v-else class=" text-xl ">
+                        <span class="bg-red-300 rounded-2xl px-4">Not Available</span>
+                    </p>
+                    
+                    <p class=" text-3xl mt-3">
+                        {{ position.name }}
+                    </p>
+
+                    <br>
+
+                    <p class=" text-lg">
+                        {{ position.description }}
+                    </p>
+
+                    <br>
+
+                    <p class=" text-2xl font-semibold">
+                        <span class="bg-violet-300 rounded-2xl px-4 py-1">
+                            <NuxtLink :to="{ path: '/JobDescription', hash: '#jobdesc' }">Apply Now</NuxtLink>
+                        </span>
+                    </p>
+                </div>
+
+                <div class=" bg-teal-100 rounded-3xl shadow-xl p-16 w-1/2" >
                     <p v-if="position.availability" class=" text-xl ">
                         <span class="bg-green-300 rounded-2xl px-4">Available</span>
                     </p>
@@ -44,6 +73,7 @@ const { data: careerData, pending, error } = await useSanityQuery(query)
                     </p>
                 </div>
             </div>
+
         </div>
     </div>
 
