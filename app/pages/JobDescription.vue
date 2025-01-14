@@ -3,7 +3,12 @@
 </script>
 
 <template>
+
     <div class=" flex gap-8 pt-44 bg-violet-300">
+    <!-- Close -->
+    <NuxtLink :to="{ path: '/Career', }">
+        <CareerCloseIcon class="absolute top-32 right-8"/>
+    </NuxtLink>
         
         <!-- IMG -->
         <div class=" w-1/2">
