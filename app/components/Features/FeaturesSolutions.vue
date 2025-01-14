@@ -1,0 +1,111 @@
+<script setup lang="ts">
+const selectedFeature = ref('timesheet')
+
+interface Feature {
+    id: string
+    title: string
+    description: string
+    image: string
+}
+
+const features: Feature[] = [
+    {
+        id: 'timesheet',
+        title: 'Timesheet Management',
+        description: 'Track employee hours accurately with task-specific timesheets for enhanced productivity insights.',
+        image: '/assets/time-management.jpg'
+    },
+    {
+        id: 'leave',
+        title: 'Leave Management',
+        description: 'Manage leave balances easily with automatic credit tracking and detailed booking overviews.',
+        image: '/assets/leave-management.jpg'
+    },
+    {
+        id: 'request',
+        title: 'Request Management',
+        description: 'Streamline software requests with our transparent request system that tracks progress at every stage.',
+        image: '/assets/request-management.jpg'
+    }
+]
+
+const selectedFeatureData = computed(() =>
+    features.find(f => f.id === selectedFeature.value)
+)
+</script>
+
+<template>
+    <section class="w-full py-32">
+        <div class="max-w-6xl mx-auto px-4">
+            <!-- Solutions Label -->
+            <div class="flex items-center justify-center mb-6">
+                <div class="inline-flex items-center gap-2 px-4 py-1 rounded-full bg-purple-100">
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M8 1.6C4.464 1.6 1.6 4.464 1.6 8C1.6 11.536 4.464 14.4 8 14.4C11.536 14.4 14.4 11.536 14.4 8C14.4 4.464 11.536 1.6 8 1.6ZM8 13.2C5.128 13.2 2.8 10.872 2.8 8C2.8 5.128 5.128 2.8 8 2.8C10.872 2.8 13.2 5.128 13.2 8C13.2 10.872 10.872 13.2 8 13.2Z"
+                            fill="#9333EA" />
+                    </svg>
+                    <span class="text-purple-700 font-medium">Solutions</span>
+                </div>
+            </div>
+
+            <!-- Title -->
+            <div class="text-center mb-4">
+                <h2 class="text-6xl font-bold inline-flex items-center gap-4">
+                    A Productivity Powerhouse.
+                    <!-- <div class="bg-white p-2 rounded-lg shadow-lg">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#9333EA" stroke-width="2">
+                            <path d="M20 6L9 17L4 12" />
+                        </svg>
+                    </div> -->
+                    <div class="-left-8 bottom-16">
+                        <img class="rotate-12" src="/assets/checkbox.png"
+                            width="80px"s>
+                    </div>
+                </h2>
+            </div>
+
+            <!-- Description -->
+            <p class="text-xl text-gray-600 text-center mb-12 max-w-3xl mx-auto">
+                Simple, flexible, and powerful. All it takes are boards, lists, and cards to get a clear view of who's
+                doing what and what needs to get done. Learn more.
+            </p>
+
+            <!-- Main Content -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Feature Tiles -->
+                <div class="space-y-4" ref="cardsContainer">
+                    <button v-for="feature in features" :key="feature.id" @click="selectedFeature = feature.id"
+                        class="w-full text-left p-6 rounded-lg transition-all duration-200" :class="[
+                            selectedFeature === feature.id
+                                ? 'bg-purple-600 text-white'
+                                : 'bg-white hover:bg-purple-50'
+                        ]">
+                        <h3 class="text-xl font-semibold mb-2">{{ feature.title }}</h3>
+                        <p class="text-sm" :class="[
+                            selectedFeature === feature.id
+                                ? 'text-purple-100'
+                                : 'text-gray-600'
+                        ]">
+                            {{ feature.description }}
+                        </p>
+                    </button>
+                </div>
+
+                <!-- Feature Image -->
+                <div class="h-full">
+                    <div class="overflow-hidden h-full shadow-xl rounded-lg">
+                        <NuxtImg :src="selectedFeatureData?.image" :alt="selectedFeatureData?.title"
+                            class="w-full h-full object-cover" loading="lazy" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</template>
+
+<style scoped>
+.grid {
+    align-items: stretch;
+}
+</style>
