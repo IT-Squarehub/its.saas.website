@@ -16,7 +16,7 @@ const { data: careerData, pending, error } = await useSanityQuery(query)
                     max-[800px]:hidden">
 
             <div v-for="position in careerData.positions" class="">
-                <div class=" bg-teal-100 rounded-3xl shadow-xl p-16" >
+                <div class=" bg-teal-100 rounded-3xl shadow-xl px-8 content-center min-h-96 max-h-96" >
                     <p v-if="position.availability" class=" text-xl ">
                         <span class="bg-green-300 rounded-2xl px-4">Available</span>
                     </p>
