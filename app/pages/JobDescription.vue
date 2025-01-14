@@ -12,12 +12,12 @@
         
         <!-- IMG PLACEHOLDER UNTIL SCHEMA AND CODE IS FIXED  -->
          <!-- Add a slug in the schema and a _slug.vue in pages -->
-        <div class=" w-1/2 p-16 flex justify-center">
+        <div class=" w-1/2 p-16 max-[1050px]:p-0 flex justify-center">
             <img src="/assets/Left-photo.png" alt="">
         </div>
 
         <!-- Qualifications -->
-        <div class=" w-1/2 pr-32 max-[1050px]:pr-0">
+        <div class=" w-1/2 pr-32 max-[1050px]:pr-0 max-[1050px]:w-2/3">
             <p class=" text-4xl font-bold mb-5">
                 Qualifications:
             </p>
@@ -74,14 +74,14 @@
             <div class=" flex my-8 gap-8">
                 
                 <!-- QR image -->
-                <div class=" h-96 w-96 pl-16">
+                <div class=" h-96 w-96 pl-16 max-[1050px]:pl-0">
                     <img src="/assets/qr-code.png" alt="QR code to apply">
                 </div>
 
                 <div>
-                    <p class=" text-4xl pb-6 font-extrabold pr-32"> 
+                    <p class=" text-4xl pb-6 font-extrabold pr-32 max-[1050px]:pr-0"> 
                         SCAN TO APPLY! </p>
-                    <p class=" pr-32">We can't wait to see your potential and transform our team together.</p>
+                    <p class=" pr-32 max-[1050px]:pr-0">We can't wait to see your potential and transform our team together.</p>
                 </div>
             </div>
         </div>
