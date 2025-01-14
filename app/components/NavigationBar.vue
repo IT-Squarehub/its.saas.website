@@ -41,9 +41,9 @@
                     </NuxtLink>
                     <div class="flex space-x-7 text-base justify-center items-center">
                         <NuxtLink to="/">Home</NuxtLink>
-                        <NuxtLink :to="{ path: '/', hash: '#services' }">Features</NuxtLink>
-                        <NuxtLink :to="{ path: '/Career', hash: '#careers' }">Careers</NuxtLink>
-                        <NuxtLink :to="{ path: '/', hash: '#reviews' }">Contact Us</NuxtLink>
+                        <NuxtLink :to="{ path: '/features' }">Features</NuxtLink>
+                        <NuxtLink :to="{ path: '/career', hash: '#careers' }">Careers</NuxtLink>
+                        <NuxtLink :to="{ path: '/contact' }">Contact Us</NuxtLink>
 
                     </div>
                     <!-- <NuxtLink :to="{ path: '/', hash: '#contacts' }"
