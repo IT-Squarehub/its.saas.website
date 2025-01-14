@@ -4,19 +4,20 @@
 
 <template>
 
-    <div class=" flex gap-8 pt-44 bg-violet-300">
+    <div class=" flex max-[1050px]:flex-col max-[1050px]:items-center gap-8 pt-44 bg-violet-300">
     <!-- Close -->
     <NuxtLink :to="{ path: '/Career', }">
         <CareerCloseIcon class="absolute top-32 right-8 "/>
     </NuxtLink>
         
         <!-- IMG PLACEHOLDER UNTIL SCHEMA AND CODE IS FIXED  -->
+         <!-- Add a slug in the schema and a _slug.vue in pages -->
         <div class=" w-1/2 p-16 flex justify-center">
             <img src="/assets/Left-photo.png" alt="">
         </div>
 
         <!-- Qualifications -->
-        <div class=" w-1/2 pr-32">
+        <div class=" w-1/2 pr-32 max-[1050px]:pr-0">
             <p class=" text-4xl font-bold mb-5">
                 Qualifications:
             </p>
