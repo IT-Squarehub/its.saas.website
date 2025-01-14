@@ -11,7 +11,7 @@ const { data: careerData, pending, error } = await useSanityQuery(query)
 <template>
     <!-- SHOULD BE IN v-for FOR SANITY IMPLEMENTATION -->
     <div>
-        <div class=" grid grid-cols-2 gap-8  
+        <div class=" grid grid-cols-2 gap-4  
                     mx-32 max-[1050px]:mx-8 mt-[-100px] max-[1200px]:mx-32 
                     max-[800px]:hidden">
 
