@@ -64,6 +64,7 @@ const { data: careerData, pending, error } = await useSanityQuery(query)
 
                     <p class=" text-3xl mt-3">
                         {{ position.name }}
+                        {{ position.id }}
                     </p>
                     <br>
                     <p class=" text-lg">
