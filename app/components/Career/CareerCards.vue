@@ -63,62 +63,62 @@ inject("urlFor", urlFor);
 
         <!-- Transition Wrapper -->
         <Transition name="fade">  
-        <CareerPopup class="fixed inset-0 z-50 flex items-center justify-center
-                            left-0 right-0 top-0 bottom-0 mx-16 rounded-3xl
-                            " v-if="activePopupId === position.id">  
-            <!-- Close -->
-            <button @click="triggerPopup(position.id)">
-                <CareerCloseIcon class="absolute top-32 right-8 "/>
-            </button>
+            <CareerPopup 
+                            class="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 p-4"
+                            v-if="activePopupId === position.id"
+                        >  
+                            <!-- Close Button -->
+                            <button @click="triggerPopup(position.id)" 
+                                class="absolute top-4 right-4 p-2 bg-purple-300 rounded-full shadow-md hover:bg-purple-400"
+                            >
+                                <CareerCloseIcon />
+                            </button>
 
-            <!-- IMG PLACEHOLDER UNTIL SCHEMA AND CODE IS FIXED  -->
-            <!-- Add a slug/ id in the schema and a _slug.vue/ [id].vue in pages -->
-            <div class=" w-1/2 p-16 max-[1050px]:hidden flex justify-center">
-                <img :src=urlFor(position.image) alt="">
-            </div>
+                            <div 
+                                class="bg-purple-200 rounded-3xl shadow-xl flex flex-col md:flex-row w-full max-w-5xl mx-auto max-h-[90vh] overflow-y-auto"
+                            >
+                                <!-- Image Section -->
+                                <div 
+                                    class="hidden md:flex w-1/2 items-center justify-center bg-purple-100 rounded-l-3xl p-8"
+                                >
+                                    <img :src="urlFor(position.image)" alt="Position Image" class="max-w-full h-auto">
+                                </div>
 
-            <!-- Qualifications -->
-            <div class=" w-1/2 pr-32 max-[1050px]:pr-0 max-[1050px]:w-2/3">
-                <p class=" text-4xl font-bold mb-5">
-                    Qualifications:
-                </p>
+                                <!-- Content Section -->
+                                <div 
+                                    class="w-full md:w-1/2 p-8 space-y-6"
+                                >
+                                    <!-- Qualifications -->
+                                    <div>
+                                        <p class="text-2xl md:text-4xl font-bold mb-4">Qualifications:</p>
+                                        <p class="text-sm md:text-base">{{ position.qualifications }}</p>
+                                    </div>
 
-                {{ position.qualifications }}
+                                    <!-- Notes -->
+                                    <div>
+                                        <p class="text-lg md:text-2xl font-bold mb-4">Notes:</p>
+                                        <ul class="list-disc pl-4 space-y-2 text-sm md:text-base">
+                                            <li>Remote / Hybrid Work Set-up.</li>
+                                            <li>Salary will be based on your skill set.</li>
+                                        </ul>
+                                    </div>
 
-                <hr class=" bg-slate-400 pt-1 mr-8">
+                                    <!-- QR Code Section -->
+                                    <div class="flex items-center justify-between gap-4">
+                                        <!-- QR Code -->
+                                        <div class="w-32 h-32">
+                                            <img src="/assets/qr-code.png" alt="QR code to apply" class="w-full h-full object-contain">
+                                        </div>
 
-                <p class="  text-2xl font-bold my-5">
-                    Notes:
-                </p>
-
-
-                <ul class=" mb-5 pl-8 list-disc">
-                    <li>
-                        Remote / Hybrid Work Set-up.
-                    </li>
-                    <li>
-                        Salary will be based on your skill set.
-                    </li>
-                </ul>
-
-                <hr class=" bg-slate-400 pt-1 mr-8">
-
-                <!-- QR Code -->
-                <div class=" flex my-8 gap-8">
-                    
-                    <!-- QR image -->
-                    <div class=" h-96 w-96 justify-end">
-                        <img src="/assets/qr-code.png" alt="QR code to apply">
-                    </div>
-
-                    <div>
-                        <p class=" text-4xl pb-6 font-extrabold pr-32 max-[1050px]:pr-0"> 
-                            SCAN TO APPLY! </p>
-                        <p class=" pr-32 max-[1050px]:pr-0">We can't wait to see your potential and transform our team together.</p>
-                    </div>
-                </div>
-            </div>
-        </CareerPopup>
+                                        <!-- Scan Info -->
+                                        <div class="flex-1">
+                                            <p class="text-xl md:text-2xl font-extrabold mb-2">SCAN TO APPLY!</p>
+                                            <p class="text-sm md:text-base">We can't wait to see your potential and transform our team together.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </CareerPopup>
         </Transition>
 
             </div>
@@ -158,64 +158,63 @@ inject("urlFor", urlFor);
 
                     <!-- Transition Wrapper -->
                     <Transition name="fade">  
-                    <CareerPopup class="fixed inset-0 z-50 flex items-center justify-center
-                                        left-0 right-0 top-0 bottom-0 mx-16 max-[1050px]:mx-4 rounded-3xl
-                                        " v-if="activePopupId === position.id">  
-                        <!-- Close -->
-                        <button @click="triggerPopup(position.id)">
-                            <CareerCloseIcon class="absolute top-32 right-8 "/>
-                        </button>
+                        <CareerPopup 
+                            class="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 p-4"
+                            v-if="activePopupId === position.id"
+                        >  
+                            <!-- Close Button -->
+                            <button @click="triggerPopup(position.id)" 
+                                class="absolute top-4 right-4 p-2 bg-purple-300 rounded-full shadow-md hover:bg-purple-400"
+                            >
+                                <CareerCloseIcon />
+                            </button>
 
-                        <!-- IMG PLACEHOLDER UNTIL SCHEMA AND CODE IS FIXED  -->
-                        <!-- Add a slug/ id in the schema and a _slug.vue/ [id].vue in pages -->
-                        <div class=" w-1/2 p-16 max-[1050px]:hidden max-[1050px]:w-56 flex justify-center">
-                            <img :src=urlFor(position.image) alt="">
-                        </div>
-
-                        <!-- Qualifications -->
-                        <div class=" w-1/2 pr-32 max-[1050px]:pr-0 max-[1050px]:w-2/3">
-                            <p class=" text-4xl max-[1050px]:text-2xl font-bold mb-5">
-                                Qualifications:
-                            </p>
-
-                            <p class=" text-sm ">
-                                {{ position.qualifications }}
-                            </p>
-
-                            <hr class=" bg-slate-400 pt-1 mr-8">
-
-                            <p class="  text-2xl font-bold my-5">
-                                Notes:
-                            </p>
-
-
-                            <ul class=" text-sm mb-5 pl-8 list-disc">
-                                <li>
-                                    Remote / Hybrid Work Set-up.
-                                </li>
-                                <li>
-                                    Salary will be based on your skill set.
-                                </li>
-                            </ul>
-
-                            <hr class=" bg-slate-400 pt-1 mr-8">
-
-                            <!-- QR Code -->
-                            <div class=" flex justify-center my-8 gap-8">
-                                
-                                <!-- QR image -->
-                                <div class=" w-32 max-[1050px]:pl-0">
-                                    <img src="/assets/qr-code.png" alt="QR code to apply">
+                            <div 
+                                class="bg-white rounded-3xl shadow-xl flex flex-col md:flex-row w-full max-w-5xl mx-auto max-h-[90vh] overflow-y-auto"
+                            >
+                                <!-- Image Section -->
+                                <div 
+                                    class="hidden md:flex w-1/2 items-center justify-center bg-gray-100 rounded-l-3xl p-8"
+                                >
+                                    <img :src="urlFor(position.image)" alt="Position Image" class="max-w-full h-auto">
                                 </div>
 
-                                <div>
-                                    <p class=" text-4xl max-[1050px]:text-2xl max-[600px]:text-xl pb-6 font-extrabold pr-32 max-[1050px]:pr-0"> 
-                                        SCAN TO APPLY! </p>
-                                    <p class=" pr-32 max-[1050px]:hidden">We can't wait to see your potential and transform our team together.</p>
+                                <!-- Content Section -->
+                                <div 
+                                    class="w-full md:w-1/2 p-8 space-y-6"
+                                >
+                                    <!-- Qualifications -->
+                                    <div>
+                                        <p class="text-2xl md:text-4xl font-bold mb-4">Qualifications:</p>
+                                        <p class="text-sm md:text-base">{{ position.qualifications }}</p>
+                                    </div>
+
+                                    <!-- Notes -->
+                                    <div>
+                                        <p class="text-lg md:text-2xl font-bold mb-4">Notes:</p>
+                                        <ul class="list-disc pl-4 space-y-2 text-sm md:text-base">
+                                            <li>Remote / Hybrid Work Set-up.</li>
+                                            <li>Salary will be based on your skill set.</li>
+                                        </ul>
+                                    </div>
+
+                                    <!-- QR Code Section -->
+                                    <div class="flex items-center justify-between gap-4">
+                                        <!-- QR Code -->
+                                        <div class="w-32 h-32">
+                                            <img src="/assets/qr-code.png" alt="QR code to apply" class="w-full h-full object-contain">
+                                        </div>
+
+                                        <!-- Scan Info -->
+                                        <div class="flex-1">
+                                            <p class="text-xl md:text-2xl font-extrabold mb-2">SCAN TO APPLY!</p>
+                                            <p class="text-sm md:text-base">We can't wait to see your potential and transform our team together.</p>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </CareerPopup>
+                        </CareerPopup>
+
                     </Transition>
                 </div>
             </div>
