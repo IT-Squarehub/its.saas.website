@@ -67,27 +67,33 @@ inject("urlFor", urlFor);
                             class="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 p-4"
                             v-if="activePopupId === position.id"
                         >  
-                            <!-- Close Button -->
-                            <button @click="triggerPopup(position.id)" 
-                                class="absolute top-4 right-4 p-2 bg-purple-300 rounded-full shadow-md hover:bg-purple-400"
-                            >
-                                <CareerCloseIcon />
-                            </button>
 
                             <div 
                                 class="bg-purple-200 rounded-3xl shadow-xl flex flex-col md:flex-row w-full max-w-5xl mx-auto max-h-[90vh] overflow-y-auto"
                             >
                                 <!-- Image Section -->
                                 <div 
-                                    class="hidden md:flex w-1/2 items-center justify-center bg-purple-100 rounded-l-3xl p-8"
+                                    class="hidden md:flex flex-col w-1/2 items-center justify-center bg-purple-100 rounded-l-3xl p-8"
                                 >
                                     <img :src="urlFor(position.image)" alt="Position Image" class="max-w-full h-auto">
+
+                                    <p class=" text-4xl font-semibold pt-4">
+                                        {{ position.name }}
+                                    </p>
                                 </div>
 
                                 <!-- Content Section -->
                                 <div 
-                                    class="w-full md:w-1/2 p-8 space-y-6"
+                                    class="w-full md:w-1/2 p-8 space-y-6 relative"
                                 >
+
+                                    <!-- Close Button -->
+                                    <button @click="triggerPopup(position.id)" 
+                                        class="absolute top-4 right-4 p-2 bg-purple-500 rounded-full shadow-md hover:bg-purple-800"
+                                    >
+                                        <CareerCloseIcon />
+                                    </button>
+
                                     <!-- Qualifications -->
                                     <div>
                                         <p class="text-2xl md:text-4xl font-bold mb-4">Qualifications:</p>
