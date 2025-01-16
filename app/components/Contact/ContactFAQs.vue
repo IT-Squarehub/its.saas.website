@@ -21,7 +21,7 @@ const faqs: FAQ[] = [
 </script>
 
 <template>
-  <section class="w-full bg-white pb-32 pl-32">
+  <section class="w-full bg-white py-20 px-10 lg:px-20">
     <div class="max-w-4xl">
       <h2 class="text-5xl font-bold mb-12 text-purple-700">Frequently Asked Questions</h2>
       
