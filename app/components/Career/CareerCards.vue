@@ -49,8 +49,16 @@ const { data: careerData, pending, error } = await useSanityQuery(query)
                     </p>
                 </div>
 
-                
-        <CareerPopup v-if=popup>    
+        <!-- Transition Wrapper -->
+        <Transition name="fade">  
+        <CareerPopup class="fixed inset-0 z-50 flex items-center justify-center
+                            left-0 right-0 top-0 bottom-0 mx-16 rounded-3xl
+                            " v-if=popup>  
+            <!-- Close -->
+            <button @click="triggerPopup()">
+                <CareerCloseIcon class="absolute top-32 right-8 "/>
+            </button>
+
             <!-- IMG PLACEHOLDER UNTIL SCHEMA AND CODE IS FIXED  -->
             <!-- Add a slug/ id in the schema and a _slug.vue/ [id].vue in pages -->
             <div class=" w-1/2 p-16 max-[1050px]:p-0 flex justify-center">
@@ -127,6 +135,7 @@ const { data: careerData, pending, error } = await useSanityQuery(query)
                 </div>
             </div>
         </CareerPopup>
+        </Transition>
 
             </div>
 
@@ -181,3 +190,18 @@ const { data: careerData, pending, error } = await useSanityQuery(query)
         <hr class=" bg-slate-400 pt-1 mx-56 mb-32 max-[1200px]:mx-32 max-[800px]:mx-16">
 
 </template>
+
+<style>
+/* Fade-in and fade-out animation */
+.fade-enter-active, .fade-leave-active {
+    transition: opacity 0.8s ease-in-out;
+}
+
+.fade-enter-from, .fade-leave-to {
+    opacity: 0;
+}
+
+.fade-enter-to, .fade-leave-from {
+    opacity: 1;
+}
+</style>
