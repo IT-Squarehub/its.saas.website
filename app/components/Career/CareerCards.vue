@@ -1,11 +1,5 @@
 <script setup>
 import CareerPopup from './CareerPopup.vue';
-const popup = ref(false);
-const id = ref(0);
-
-// function triggerPopup(){
-//     popup.value = !popup.value;
-// }
 
 const activePopupId = ref(null); // Track the ID of the active popup
 
@@ -21,6 +15,12 @@ function triggerPopup(positionId) {
 const query = groq`*[_type == "careers"][0]`
 
 const { data: careerData, pending, error } = await useSanityQuery(query)
+import imageUrlBuilder from "@sanity/image-url";
+const builder = imageUrlBuilder(useSanity().config);
+function urlFor(source) {
+return builder.image(source).auto("format");
+}
+inject("urlFor", urlFor);
 
 
 </script>
@@ -74,7 +74,7 @@ const { data: careerData, pending, error } = await useSanityQuery(query)
             <!-- IMG PLACEHOLDER UNTIL SCHEMA AND CODE IS FIXED  -->
             <!-- Add a slug/ id in the schema and a _slug.vue/ [id].vue in pages -->
             <div class=" w-1/2 p-16 max-[1050px]:p-0 flex justify-center">
-                <img src="/assets/Left-photo.png" alt="">
+                <img :src=urlFor(position.image) alt="">
             </div>
 
             <!-- Qualifications -->
@@ -83,7 +83,7 @@ const { data: careerData, pending, error } = await useSanityQuery(query)
                     Qualifications:
                 </p>
 
-                {{ position.description }}
+                {{ position.qualifications }}
 
                 <hr class=" bg-slate-400 pt-1 mr-8">
 
