@@ -73,7 +73,7 @@ inject("urlFor", urlFor);
 
             <!-- IMG PLACEHOLDER UNTIL SCHEMA AND CODE IS FIXED  -->
             <!-- Add a slug/ id in the schema and a _slug.vue/ [id].vue in pages -->
-            <div class=" w-1/2 p-16 max-[1050px]:p-0 flex justify-center">
+            <div class=" w-1/2 p-16 max-[1050px]:hidden flex justify-center">
                 <img :src=urlFor(position.image) alt="">
             </div>
 
@@ -107,7 +107,7 @@ inject("urlFor", urlFor);
                 <div class=" flex my-8 gap-8">
                     
                     <!-- QR image -->
-                    <div class=" h-96 w-96 pl-16 max-[1050px]:pl-0">
+                    <div class=" h-96 w-96 justify-end">
                         <img src="/assets/qr-code.png" alt="QR code to apply">
                     </div>
 
@@ -142,7 +142,6 @@ inject("urlFor", urlFor);
 
                     <p class=" text-3xl mt-3">
                         {{ position.name }}
-                        {{ position.id }}
                     </p>
                     <br>
                     <p class=" text-lg">
@@ -153,9 +152,71 @@ inject("urlFor", urlFor);
 
                     <p class=" text-2xl font-semibold">
                         <span class="bg-violet-300 rounded-2xl px-4 py-1">
-                            <NuxtLink :to="{ path: '/JobDescription', hash: '#jobdesc' }">Apply Now</NuxtLink>
+                            <button @click="triggerPopup(position.id)">Apply Now</button>
                         </span>
                     </p>
+
+                    <!-- Transition Wrapper -->
+                    <Transition name="fade">  
+                    <CareerPopup class="fixed inset-0 z-50 flex items-center justify-center
+                                        left-0 right-0 top-0 bottom-0 mx-16 max-[1050px]:mx-4 rounded-3xl
+                                        " v-if="activePopupId === position.id">  
+                        <!-- Close -->
+                        <button @click="triggerPopup(position.id)">
+                            <CareerCloseIcon class="absolute top-32 right-8 "/>
+                        </button>
+
+                        <!-- IMG PLACEHOLDER UNTIL SCHEMA AND CODE IS FIXED  -->
+                        <!-- Add a slug/ id in the schema and a _slug.vue/ [id].vue in pages -->
+                        <div class=" w-1/2 p-16 max-[1050px]:hidden max-[1050px]:w-56 flex justify-center">
+                            <img :src=urlFor(position.image) alt="">
+                        </div>
+
+                        <!-- Qualifications -->
+                        <div class=" w-1/2 pr-32 max-[1050px]:pr-0 max-[1050px]:w-2/3">
+                            <p class=" text-4xl max-[1050px]:text-2xl font-bold mb-5">
+                                Qualifications:
+                            </p>
+
+                            <p class=" text-sm ">
+                                {{ position.qualifications }}
+                            </p>
+
+                            <hr class=" bg-slate-400 pt-1 mr-8">
+
+                            <p class="  text-2xl font-bold my-5">
+                                Notes:
+                            </p>
+
+
+                            <ul class=" text-sm mb-5 pl-8 list-disc">
+                                <li>
+                                    Remote / Hybrid Work Set-up.
+                                </li>
+                                <li>
+                                    Salary will be based on your skill set.
+                                </li>
+                            </ul>
+
+                            <hr class=" bg-slate-400 pt-1 mr-8">
+
+                            <!-- QR Code -->
+                            <div class=" flex justify-center my-8 gap-8">
+                                
+                                <!-- QR image -->
+                                <div class=" w-32 max-[1050px]:pl-0">
+                                    <img src="/assets/qr-code.png" alt="QR code to apply">
+                                </div>
+
+                                <div>
+                                    <p class=" text-4xl max-[1050px]:text-2xl max-[600px]:text-xl pb-6 font-extrabold pr-32 max-[1050px]:pr-0"> 
+                                        SCAN TO APPLY! </p>
+                                    <p class=" pr-32 max-[1050px]:hidden">We can't wait to see your potential and transform our team together.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </CareerPopup>
+                    </Transition>
                 </div>
             </div>
 
