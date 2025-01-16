@@ -1,5 +1,5 @@
 <template>
-    <section class="max-w-7xl mx-auto px-4 py-16">
+    <section class="max-w-7xl mx-auto px-10 py-16">
         <!-- Main Heading -->
         <div class="text-center mb-12">
             <h1 class="text-4xl md:text-5xl font-bold mb-4">
@@ -11,9 +11,10 @@
         </div>
 
         <!-- Features Grid -->
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 ">
             <!-- Streamlined Workflows -->
-            <div class="bg-white rounded-xl p-8 shadow-sm border border-purple-100">
+            <div
+                class="bg-white rounded-xl p-8 shadow-sm border border-purple-100 transition-all duration-200 ease-in-out hover:scale-105 hover:border-purple-300">
                 <h2 class="text-2xl font-semibold text-purple-700 mb-4 text-center">
                     Streamlined Workflows
                 </h2>
@@ -29,7 +30,8 @@
             </div>
 
             <!-- Real-time Visibility -->
-            <div class="bg-white rounded-xl p-8 shadow-sm border border-purple-100">
+            <div
+                class="bg-white rounded-xl p-8 shadow-sm border border-purple-100 transition-all duration-200 ease-in-out hover:scale-105 hover:border-purple-300">
                 <h2 class="text-2xl font-semibold text-purple-700 mb-4 text-center">
                     Real-time Visibility
                 </h2>
@@ -44,7 +46,8 @@
             </div>
 
             <!-- Smart Time Management -->
-            <div class="bg-white rounded-xl p-8 shadow-sm border border-purple-100 md:col-span-2">
+            <div
+                class="bg-white rounded-xl p-8 shadow-sm border border-purple-100 md:col-span-2 transition-all duration-200 ease-in-out hover:scale-105 hover:border-purple-300">
                 <h2 class="text-2xl font-semibold text-purple-700 mb-4 text-center">
                     Smart Time Management
                 </h2>

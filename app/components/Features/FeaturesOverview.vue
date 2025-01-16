@@ -4,7 +4,7 @@
 
 <template>
   <section class="w-full bg-[url('/assets/net-background.png')] bg-cover bg-center py-32">
-    <div class="max-w-6xl mx-auto px-4">
+    <div class="mx-auto px-10">
       <!-- Overview Label -->
       <div class="flex items-center justify-center mb-6">
         <div class="inline-flex items-center gap-2 px-4 py-1 rounded-full bg-purple-100">
@@ -17,10 +17,10 @@
         </div>
       </div>
 
-      <!-- Title with dotted border -->
+      <!-- Title -->
       <div class="flex justify-center mb-6">
-        <div class="inline-block rounded-lg px-6 py-3">
-          <h2 class="text-6xl font-bold text-purple-700">Your HR Command Center</h2>
+        <div class="rounded-lg px-6 py-3">
+          <h2 class="text-6xl text-center font-bold text-purple-700">Your HR Command Center</h2>
         </div>
       </div>
 
@@ -38,27 +38,13 @@
         </div>
 
         <!-- Decorative Elements -->
-        <div class="absolute -left-8 bottom-16">
-          <!-- <div class="bg-purple-100 rounded-lg p-4 shadow-lg">
-            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke="#9333EA" stroke-width="2"/>
-              <path d="M12 6V12L16 14" stroke="#9333EA" stroke-width="2" stroke-linecap="round"/>
-            </svg>
-          </div> -->
+        <div class="absolute xl:-left-8 xl:bottom-16 w-16 bottom-16 left-16 md:w-24 ">
           <img class="-rotate-[28deg] -translate-x-14 translate-y-28" src="/assets/clockbox.png" width="120px"
             height="120px">
         </div>
 
         <!-- Calendar Icon -->
-        <div class="absolute -right-8 top-16">
-          <!-- <div class="bg-purple-100 rounded-lg p-4 shadow-lg">
-            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <rect x="3" y="4" width="18" height="18" rx="2" stroke="#9333EA" stroke-width="2"/>
-              <path d="M16 2V6" stroke="#9333EA" stroke-width="2" stroke-linecap="round"/>
-              <path d="M8 2V6" stroke="#9333EA" stroke-width="2" stroke-linecap="round"/>
-              <path d="M3 10H21" stroke="#9333EA" stroke-width="2"/>
-            </svg>
-          </div> -->
+        <div class="absolute right-8 top-0 w-16 md:w-24">
           <img class="-rotate-[-21deg] translate-x-10 -translate-y-5" src="/assets/datebox.png" width="120px"
             height="120px">
         </div>

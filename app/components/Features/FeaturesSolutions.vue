@@ -36,7 +36,7 @@ const selectedFeatureData = computed(() =>
 
 <template>
     <section class="w-full py-32">
-        <div class="max-w-6xl mx-auto px-4">
+        <div class="max-w-6xl mx-auto px-10">
             <!-- Solutions Label -->
             <div class="flex items-center justify-center mb-6">
                 <div class="inline-flex items-center gap-2 px-4 py-1 rounded-full bg-purple-100">
@@ -50,17 +50,11 @@ const selectedFeatureData = computed(() =>
             </div>
 
             <!-- Title -->
-            <div class="text-center mb-4">
-                <h2 class="text-6xl font-bold inline-flex items-center gap-4">
+            <div class="text-center mb-4 flex items-center justify-center">
+                <h2 class="text-4xl md:text-6xl font-bold inline-flex items-center lg:gap-4">
                     A Productivity Powerhouse.
-                    <!-- <div class="bg-white p-2 rounded-lg shadow-lg">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#9333EA" stroke-width="2">
-                            <path d="M20 6L9 17L4 12" />
-                        </svg>
-                    </div> -->
                     <div class="-left-8 bottom-16">
-                        <img class="rotate-12" src="/assets/checkbox.png"
-                            width="80px"s>
+                        <img class="rotate-12 hidden lg:block" src="/assets/checkbox.png" width="80px" s>
                     </div>
                 </h2>
             </div>
@@ -68,7 +62,7 @@ const selectedFeatureData = computed(() =>
             <!-- Description -->
             <p class="text-xl text-gray-600 text-center mb-12 max-w-3xl mx-auto">
                 Simple, flexible, and powerful. All it takes are boards, lists, and cards to get a clear view of who's
-                doing what and what needs to get done. Learn more.
+                doing what and what needs to get done.
             </p>
 
             <!-- Main Content -->
@@ -76,10 +70,10 @@ const selectedFeatureData = computed(() =>
                 <!-- Feature Tiles -->
                 <div class="space-y-4" ref="cardsContainer">
                     <button v-for="feature in features" :key="feature.id" @click="selectedFeature = feature.id"
-                        class="w-full text-left p-6 rounded-lg transition-all duration-200" :class="[
+                        class="w-full text-center md:text-left p-6 rounded-lg transition-all duration-200 border-2 border-purple-300" :class="[
                             selectedFeature === feature.id
-                                ? 'bg-purple-600 text-white'
-                                : 'bg-white hover:bg-purple-50'
+                                ? 'bg-purple-600 text-white hover:scale-105'
+                                : 'bg-white hover:bg-purple-50 hover:scale-105'
                         ]">
                         <h3 class="text-xl font-semibold mb-2">{{ feature.title }}</h3>
                         <p class="text-sm" :class="[
