@@ -5,9 +5,9 @@
     <div class="relative bg-purple-300 text-white lg:pb-32 lg:pt-44 lg:px-10 pb-44 pt-60 px-4">
 
         <div
-            class="flex flex-col gap-5 justify-center items-center lg:items-start min-h-[3rem] md:min-h-[6rem] leading-tight md:w-auto lg:w-[40rem] xl:w-[50rem] px-28 lg:px-0">
+            class="flex flex-col gap-5 justify-center items-center lg:items-start min-h-[3rem] md:min-h-[6rem] leading-tight md:w-auto lg:w-[40rem] xl:w-[50rem] px-18 lg:px-10">
             <h1 class="text-5xl text-center lg:text-left font-bold text-black z-30">Features and Functionalities</h1>
-            <p class="text-xl text-center lg:text-left font-Inter font-thin text-black z-30">The various features of the
+            <p class="text-xl text-center lg:text-left font-Inter md:w-[80%] lg:w-[100%] font-thin text-black z-30">The various features of the
                 HRIS system will help your
                 Human Resource needs. Here are some!</p>
         </div>
