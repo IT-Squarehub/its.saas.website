@@ -1,19 +1,6 @@
 <script setup>
-// export interface CareerHero {
-//     careers: {
-//         heading: string;
-//         subtitle: string;
-//     }
-// }
-
 const query = groq`*[_type == "careers"][0]`
 
-// {
-//   careers {
-//     heading,
-//     subtitle
-//   }
-// }
 // Fetch data from Sanity
 const { data: careerData, pending, error } = await useSanityQuery(query)
 
@@ -23,25 +10,22 @@ const { data: careerData, pending, error } = await useSanityQuery(query)
     <div>
         <!-- Career Hero section -->
         <div class=" bg-purple-300 px-32 pt-32 pb-44 max-[550px]:px-4 max-[1200px]:px-16 relative -z-10">
-            <p class=" text-[80px] max-[550px]:text-4xl max-[1050px]:text-6xl">
+            <p class=" text-[80px] max-[550px]:text-4xl max-[1050px]:text-6xl font-bold
+                        max-[550px]:pr-16 pr-44 min-[801px]:pr-16">
                 {{ careerData?.heading }}
             </p>
 
-            <p class=" text-2xl pl-2 max-[550px]:text-lg max-[1050px]:pt-4 ">
+            <p class=" text-2xl pl-2 max-[550px]:text-lg max-[1050px]:pt-4 font-semibold 
+                        max-[550px]:pr-36 pr-36 min-[801px]:pr-56">
                 {{ careerData?.subtitle }}
             </p>
-            <img src="/assets/shapes.png" alt="Hero Image" class=" h-96 w-96 absolute bottom-0 right-0 object-cover rotate-90 -z-10" />
+
+            <img src="/assets/shapes.png" alt="Hero Image" 
+            class=" h-96 w-96 max-[600px]:w-64 max-[600px]:h-64 
+                    max-[800px]:opacity-70  
+                    absolute bottom-16 right-0 object-cover rotate-180 -z-10" />
+
         </div>
 
     </div>
 </template>
-
-<!-- <div class="relative w-full bg-purple-300 text-white text-center py-32">
-        
-    <div class="flex flex-col items-center justify-center gap-4 px-[30%] z-50">
-        <h1 class="text-6xl font-bold text-black">Your partner in software innovation</h1>
-        <p class="text-lg font-Inter font-thin text-black">Stay ahead of the competition with cutting-edge development, seamless integration, and collaborative tools from ITS SquareHub.</p>
-        <button class="bg-white text-black font-semibold px-4 py-2 rounded mt-4">Get Started</button>
-    </div>
-    
-    </div> -->
