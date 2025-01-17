@@ -69,11 +69,11 @@ inject("urlFor", urlFor);
                         >  
 
                             <div 
-                                class="bg-purple-200 rounded-3xl shadow-xl flex flex-col md:flex-row w-full max-w-5xl mx-auto max-h-[90vh] overflow-y-auto"
+                                class="bg-purple-200 rounded-3xl shadow-xl flex flex-col md:flex-row w-full max-w-5xl mx-auto max-h-[90vh] overflow-y-auto "
                             >
                                 <!-- Image Section -->
                                 <div 
-                                    class="hidden md:flex flex-col w-full items-center justify-center bg-purple-100 rounded-l-3xl px-8 relative"
+                                    class="hidden md:flex flex-col w-full bg-purple-100 rounded-l-3xl px-8 relative"
                                 >
                                     <!-- Close Button -->
                                     <button @click="triggerPopup(position.id)" 
@@ -82,8 +82,13 @@ inject("urlFor", urlFor);
                                         <CareerCloseIcon />
                                     </button>
 
-                                    <img :src="urlFor(position.image)" alt="Position Image" class="max-w-full h-auto">
-
+                                    <img :src="urlFor(position.image)" alt="Position Image" class="max-w-full h-auto"
+                                        v-if=position.availability
+                                    >
+                                    
+                                    <p v-else class=" text-4xl py-8 px-4">
+                                        Not available.
+                                    </p>
                                 </div>
                             </div>
                         </CareerPopup>
@@ -135,7 +140,7 @@ inject("urlFor", urlFor);
                             >
                                 <!-- Image Section -->
                                 <div 
-                                    class="hidden md:flex flex-col w-full items-center justify-center bg-purple-100 rounded-l-3xl px-8 relative"
+                                    class=" flex-col w-full bg-purple-100 rounded-l-3xl px-8 relative"
                                 >
                                     <!-- Close Button -->
                                     <button @click="triggerPopup(position.id)" 
@@ -144,7 +149,13 @@ inject("urlFor", urlFor);
                                         <CareerCloseIcon />
                                     </button>
 
-                                    <img :src="urlFor(position.image)" alt="Position Image" class="max-w-full h-auto">
+                                    <img :src="urlFor(position.image)" alt="Position Image" class="max-w-full h-auto"
+                                        v-if=position.availability
+                                    >
+
+                                    <p v-else class=" text-4xl py-8 px-4">
+                                        Not available.
+                                    </p>
 
                                 </div>
                             </div>
@@ -156,6 +167,9 @@ inject("urlFor", urlFor);
 
             <!-- Link Button -->
             <br>
+            <NuxtLink
+                to="https://www.itsquarehub.com/careers"
+            >
             <div class=" mb-32 mt-16 text-center w-full">
 
                 <p class=" text-white">
@@ -165,6 +179,7 @@ inject("urlFor", urlFor);
                 </p>
 
             </div>
+            </NuxtLink>
 
         <hr class=" bg-slate-400 pt-1 mx-56 mb-32 max-[1200px]:mx-32 max-[800px]:mx-16">
 
