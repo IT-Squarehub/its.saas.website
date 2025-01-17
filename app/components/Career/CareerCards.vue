@@ -28,7 +28,7 @@ inject("urlFor", urlFor);
 <template>
     <!-- SHOULD BE IN v-for FOR SANITY IMPLEMENTATION -->
     <div>
-        <div class=" grid grid-cols-2 gap-8  
+        <div class=" grid grid-cols-2 gap-16  
                     mx-32 max-[1050px]:mx-8 mt-[-100px] max-[1200px]:mx-32 
                     max-[800px]:hidden">
 
@@ -170,7 +170,7 @@ inject("urlFor", urlFor);
             <NuxtLink
                 to="https://www.itsquarehub.com/careers"
             >
-            <div class=" mb-32 mt-16 text-center w-full">
+            <div class=" mb-24 mt-24 text-center w-full">
 
                 <p class=" text-white">
                     <span class=" bg-violet-800 p-4 rounded-xl"> 
