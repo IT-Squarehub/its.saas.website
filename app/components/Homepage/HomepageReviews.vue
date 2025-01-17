@@ -39,6 +39,81 @@ const safeReviewsData = computed(() => reviewsData.value || {
 })
 </script>
 
+<!-- Verision 1 -->
+<!-- <template>
+    <div class="py-16 font-InstrumentSans">
+        <div class="mx-auto px-12 lg:px-32">
+            <h2 class="text-4xl font-semibold mb-12 text-center">{{ safeReviewsData.reviewsSection.heading }}</h2>
+
+            <div>
+                <img class="absolute -rotate-[10deg] -translate-x-16 translate-y-96 hidden xl:block lg:w-24 md:w-28"
+                    src="/assets/messagebox.png">
+            </div>
+
+            <div class="grid lg:grid-cols-3 lg:grid-rows-3 grid-cols-1 gap-4">
+                <div
+                    class="lg:col-span-1 lg:row-span-1 bg-white p-6 rounded-lg shadow-lg flex flex-col border-2 border-purple-300">
+                    <p class="text-gray-600 mb-4">{{ safeReviewsData.reviewsSection.reviews[0].comment }}</p>
+                    <div class="mt-auto">
+                        <p class="font-semibold">{{ safeReviewsData.reviewsSection.reviews[0].name }}</p>
+                        <p class="text-gray-500">{{ safeReviewsData.reviewsSection.reviews[0].position }}</p>
+                    </div>
+                </div>
+
+                <div
+                    class="lg:col-span-1 lg:row-span-1 bg-white p-6 rounded-lg shadow-lg flex flex-col border-2 border-purple-300">
+                    <p class="text-gray-600 mb-4">{{ safeReviewsData.reviewsSection.reviews[1].comment }}</p>
+                    <div class="mt-auto">
+                        <p class="font-semibold">{{ safeReviewsData.reviewsSection.reviews[1].name }}</p>
+                        <p class="text-gray-500">{{ safeReviewsData.reviewsSection.reviews[1].position }}</p>
+                    </div>
+                </div>
+
+                <div
+                    class="lg:col-span-1 lg:row-span-1 bg-white p-6 rounded-lg shadow-lg flex flex-col border-2 border-purple-300">
+                    <p class="text-gray-600 mb-4">{{ safeReviewsData.reviewsSection.reviews[2].comment }}</p>
+                    <div class="mt-auto">
+                        <p class="font-semibold">{{ safeReviewsData.reviewsSection.reviews[2].name }}</p>
+                        <p class="text-gray-500">{{ safeReviewsData.reviewsSection.reviews[2].position }}</p>
+                    </div>
+                </div>
+
+                <div
+                    class="lg:col-span-1 lg:row-span-2 bg-white p-6 rounded-lg shadow-lg flex flex-col border-2 border-purple-300">
+                    <p class="text-gray-600 mb-4">{{ safeReviewsData.reviewsSection.reviews[3].comment }}</p>
+                    <div class="mt-auto">
+                        <p class="font-semibold">{{ safeReviewsData.reviewsSection.reviews[3].name }}</p>
+                        <p class="text-gray-500">{{ safeReviewsData.reviewsSection.reviews[3].position }}</p>
+                    </div>
+                </div>
+
+                <div
+                    class="lg:col-span-1 lg:row-span-2 bg-purple-600 text-white py-6 px-6 rounded-lg shadow-lg flex items-center justify-start">
+                    <p class="text-[1.5rem] lg:text-[2rem] text-center lg:text-left font-semibold">{{ safeReviewsData.reviewsSection.subtitle }}
+                    </p>
+                </div>
+
+                <div
+                    class="lg:col-span-1 lg:row-span-2 bg-white p-6 rounded-lg shadow-lg flex flex-col border-2 border-purple-300">
+                    <p class="text-gray-600 mb-4">{{ safeReviewsData.reviewsSection.reviews[4].comment }}</p>
+                    <div class="mt-auto">
+                        <p class="font-semibold">{{ safeReviewsData.reviewsSection.reviews[4].name }}</p>
+                        <p class="text-gray-500">{{ safeReviewsData.reviewsSection.reviews[4].position }}</p>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="flex justify-end ">
+                <img class="absolute -rotate-[-21deg] translate-x-12 -translate-y-28 hidden xl:block lg:w-24 md:w-28"
+                    src="/assets/checkbox.png" width="120px" height="120px">
+            </div>
+
+        </div>
+    </div>
+</template> -->
+
+<!-- Version 2 -->
 <template>
     <div class="py-16 font-InstrumentSans">
         <div class="mx-auto px-12 lg:px-32">
@@ -49,11 +124,10 @@ const safeReviewsData = computed(() => reviewsData.value || {
                     src="/assets/messagebox.png">
             </div>
 
-            <!-- <div class="grid grid-cols-3 gap-4 grid-rows-3"> -->
-            <div class="grid lg:grid-cols-3 lg:grid-rows-3 grid-cols-2 grid-rows-3 gap-4">
-                <!-- First review - larger size -->
+            <div class="grid lg:grid-cols-3 lg:grid-rows-3 grid-cols-1 gap-4">
+
                 <div
-                    class="col-span-1 row-span-2 bg-white p-6 rounded-lg shadow-lg flex flex-col border-2 border-purple-300">
+                    class="lg:col-span-1 lg:row-span-2 bg-white p-6 rounded-lg shadow-lg flex flex-col border-2 border-purple-300">
                     <p class="text-gray-600 mb-4">{{ safeReviewsData.reviewsSection.reviews[0].comment }}</p>
                     <div class="mt-auto">
                         <p class="font-semibold">{{ safeReviewsData.reviewsSection.reviews[0].name }}</p>
@@ -62,7 +136,7 @@ const safeReviewsData = computed(() => reviewsData.value || {
                 </div>
 
                 <div
-                    class="col-span-1 row-span-1 bg-white p-6 rounded-lg shadow-lg flex flex-col border-2 border-purple-300">
+                    class="lg:col-span-1 lg:row-span-1 bg-white p-6 rounded-lg shadow-lg flex flex-col border-2 border-purple-300">
                     <p class="text-gray-600 mb-4">{{ safeReviewsData.reviewsSection.reviews[1].comment }}</p>
                     <div class="mt-auto">
                         <p class="font-semibold">{{ safeReviewsData.reviewsSection.reviews[1].name }}</p>
@@ -71,7 +145,7 @@ const safeReviewsData = computed(() => reviewsData.value || {
                 </div>
 
                 <div
-                    class="col-span-1 row-span-1 bg-white p-6 rounded-lg shadow-lg flex flex-col border-2 border-purple-300">
+                    class="lg:col-span-1 lg:row-span-1 bg-white p-6 rounded-lg shadow-lg flex flex-col border-2 border-purple-300">
                     <p class="text-gray-600 mb-4">{{ safeReviewsData.reviewsSection.reviews[2].comment }}</p>
                     <div class="mt-auto">
                         <p class="font-semibold">{{ safeReviewsData.reviewsSection.reviews[2].name }}</p>
@@ -80,7 +154,7 @@ const safeReviewsData = computed(() => reviewsData.value || {
                 </div>
 
                 <div
-                    class="col-span-1 row-span-2 bg-white p-6 rounded-lg shadow-lg flex flex-col border-2 border-purple-300">
+                    class="lg:col-span-1 lg:row-span-3 bg-white p-6 rounded-lg shadow-lg flex flex-col border-2 border-purple-300">
                     <p class="text-gray-600 mb-4">{{ safeReviewsData.reviewsSection.reviews[3].comment }}</p>
                     <div class="mt-auto">
                         <p class="font-semibold">{{ safeReviewsData.reviewsSection.reviews[3].name }}</p>
@@ -88,15 +162,14 @@ const safeReviewsData = computed(() => reviewsData.value || {
                     </div>
                 </div>
 
-                <!-- Subtitle card - purple background -->
                 <div
-                    class="col-span-1 row-span-2 bg-purple-600 text-white py-6 px-6 rounded-lg shadow-lg flex items-center justify-start">
-                    <p class="text-[1.5rem] lg:text-[2rem] text-center lg:text-left font-semibold">{{ safeReviewsData.reviewsSection.subtitle }}
+                    class="lg:col-span-1 lg:row-span-3 bg-purple-600 text-white py-16 px-6 rounded-lg shadow-lg flex items-center justify-center lg:justify-start">
+                    <p class="text-[1.7rem] leading-8 lg:leading-10 lg:text-[2rem] text-center lg:text-left font-semibold">{{ safeReviewsData.reviewsSection.subtitle }}
                     </p>
                 </div>
 
                 <div
-                    class="lg:col-span-1 col-span-2 row-span-2 bg-white p-6 rounded-lg shadow-lg border-2 border-purple-300">
+                    class="lg:col-span-1 lg:row-span-2 bg-white p-6 rounded-lg shadow-lg border-2 border-purple-300">
                     <p class="text-gray-600 mb-4">{{ safeReviewsData.reviewsSection.reviews[4].comment }}</p>
                     <div class="mt-auto">
                         <p class="font-semibold">{{ safeReviewsData.reviewsSection.reviews[4].name }}</p>
