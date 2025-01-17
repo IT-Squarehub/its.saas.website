@@ -1,61 +1,84 @@
+<script setup lang="ts">
+interface DetailsSection {
+    features: {
+        heading: string,
+        subtitle: string,
+        items: Details[]
+    }
+}
+
+interface Details {
+    title: string,
+    subtitle: string,
+    image: {
+        asset: {
+            url: string
+        }
+    }
+}
+
+const query = groq`*[_type == "featuresPage"][0] {
+    features {
+      heading,
+      subtitle,
+      items[] {
+        title,
+        subtitle,
+        image {
+          asset -> {
+            url
+          }
+        }
+      }
+    }
+  }`
+
+// Fetch data from Sanity
+const { data: detailsData } = await useSanityQuery<DetailsSection>(query)
+
+// Computed property to ensure we have the items safely
+const featureItems = computed(() => detailsData.value?.features.items || [])
+</script>
+
 <template>
-    <section class="max-w-7xl mx-auto px-4 py-16">
+    <section class="max-w-7xl mx-auto px-10 py-16">
         <!-- Main Heading -->
         <div class="text-center mb-12">
             <h1 class="text-4xl md:text-5xl font-bold mb-4">
-                Everything You Need to Manage Your Workforce
+                {{ detailsData?.features.heading }}
             </h1>
             <p class="text-gray-600 text-lg">
-                From time tracking to leave management, all your HR tools in one place
+                {{ detailsData?.features.subtitle }}
             </p>
         </div>
 
         <!-- Features Grid -->
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <!-- Streamlined Workflows -->
-            <div class="bg-white rounded-xl p-8 shadow-sm border border-purple-100">
+            <!-- First Two Items in 2-column Grid -->
+            <div v-for="(item, index) in featureItems.slice(0, 2)" :key="index"
+                class="bg-white rounded-xl p-8 shadow-sm border border-purple-300 transition-all duration-200 ease-in-out hover:scale-105 hover:border-purple-300">
                 <h2 class="text-2xl font-semibold text-purple-700 mb-4 text-center">
-                    Streamlined Workflows
+                    {{ item.title }}
                 </h2>
                 <p class="text-gray-600 mb-6">
-                    Transform your HR processes with our intelligent workflow automation. From performance appraisals to
-                    leave approval process, our system streamlines every approval process with smart routing and
-                    automated notifications. Experience faster request processing times while maintaining clear audit
-                    trails and keeping stakeholders informed at every step.
+                    {{ item.subtitle }}
                 </p>
                 <div class="bg-gray-50 rounded-lg p-4">
-                    <img src="/assets/dashboard.png" alt="Workflow Interface" class="w-full rounded-lg shadow-sm" />
+                    <img :src="item.image.asset.url" :alt="item.title" class="w-full rounded-lg shadow-sm" />
                 </div>
             </div>
 
-            <!-- Real-time Visibility -->
-            <div class="bg-white rounded-xl p-8 shadow-sm border border-purple-100">
+            <!-- Last Item Spanning Full Width -->
+            <div v-if="featureItems[2]"
+                class="bg-white rounded-xl p-8 shadow-sm border border-purple-300 md:col-span-2 transition-all duration-200 ease-in-out hover:scale-105 hover:border-purple-300">
                 <h2 class="text-2xl font-semibold text-purple-700 mb-4 text-center">
-                    Real-time Visibility
+                    {{ featureItems[2].title }}
                 </h2>
                 <p class="text-gray-600 mb-6">
-                    Track attendance patterns, monitor timesheet submissions, and stay updated on employee leaves in
-                    real-time. Our consolidated view gives you complete oversight of your workforce activities, helping
-                    you make informed decisions quickly and efficiently—all from a single unified platform.
+                    {{ featureItems[2].subtitle }}
                 </p>
                 <div class="bg-gray-50 rounded-lg p-4">
-                    <img src="/assets/dashboard.png" alt="Dashboard Interface" class="w-full rounded-lg shadow-sm" />
-                </div>
-            </div>
-
-            <!-- Smart Time Management -->
-            <div class="bg-white rounded-xl p-8 shadow-sm border border-purple-100 md:col-span-2">
-                <h2 class="text-2xl font-semibold text-purple-700 mb-4 text-center">
-                    Smart Time Management
-                </h2>
-                <p class="text-gray-600 mb-6">
-                    Effortlessly track work hours, manage projects, and handle time-off requests. Record work hours with
-                    precision, allocate resources to projects effectively, and process time-off requests seamlessly. Our
-                    automated system ensures accurate time tracking while reducing manual data entry, and providing
-                    valuable insights into workforce productivity patterns.
-                </p>
-                <div class="bg-gray-50 rounded-lg p-4">
-                    <img src="/assets/dashboard.png" alt="Time Management Interface"
+                    <img :src="featureItems[2].image.asset.url" :alt="featureItems[2].title"
                         class="w-full rounded-lg shadow-sm" />
                 </div>
             </div>

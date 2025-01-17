@@ -10,9 +10,11 @@ interface Feature {
 }
 
 interface FeaturesSection {
-    heading: string
-    subtitle: string
-    features: Feature[]
+    featuresSection: {
+        heading: string
+        subtitle: string
+        features: Feature[]
+    }
 }
 
 const query = groq`*[_type == "homepage"][0]{
@@ -39,23 +41,23 @@ const { data: featuresData } = await useSanityQuery<FeaturesSection>(query)
 <template>
     <div class="py-20 font-InstrumentSans" v-if="featuresData">
 
-        <div class="container mx-auto px-4">
+        <div class="mx-auto px-12 lg:px-32">
             <!-- Features header section -->
 
             <!-- Features grid -->
-            <div class="grid md:grid-cols-2 lg:grid-cols-2 gap-6 sm:mx-12 md:mx-32 lg:mx-32">
+            <div class="grid md:grid-cols-2 lg:grid-cols-2 gap-6">
                 <!-- Main heading section -->
                 <div class=" flex flex-col">
-                    <div class="flex items-center justify-start gap-2 mb-8">
+                    <div class="flex items-center justify-center md:justify-start gap-2 mb-8">
                         <div class="p-2 bg-purple-100 rounded-lg">
                             <Icon name="heroicons:squares-2x2" class="w-6 h-6 text-purple-600" />
                         </div>
                         <span class="text-purple-600 font-semibold">Features</span>
                     </div>
-                    <h1 class="text-5xl font-bold mb-6 text-gray-900">
+                    <h1 class="text-5xl font-bold mb-6 text-gray-900 text-center md:text-left">
                         {{ featuresData.featuresSection.heading }}
                     </h1>
-                    <p class="text-xl text-gray-600">
+                    <p class="text-xl text-gray-600 text-center md:text-left">
                         {{ featuresData.featuresSection.subtitle }}
                     </p>
                 </div>
