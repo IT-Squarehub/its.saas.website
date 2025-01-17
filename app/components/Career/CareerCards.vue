@@ -73,55 +73,17 @@ inject("urlFor", urlFor);
                             >
                                 <!-- Image Section -->
                                 <div 
-                                    class="hidden md:flex flex-col w-1/2 items-center justify-center bg-purple-100 rounded-l-3xl p-8"
+                                    class="hidden md:flex flex-col w-full items-center justify-center bg-purple-100 rounded-l-3xl px-8 relative"
                                 >
-                                    <img :src="urlFor(position.image)" alt="Position Image" class="max-w-full h-auto">
-
-                                    <p class=" text-4xl font-semibold pt-4">
-                                        {{ position.name }}
-                                    </p>
-                                </div>
-
-                                <!-- Content Section -->
-                                <div 
-                                    class="w-full md:w-1/2 p-8 space-y-6 relative"
-                                >
-
                                     <!-- Close Button -->
                                     <button @click="triggerPopup(position.id)" 
-                                        class="absolute top-4 right-4 p-2 bg-purple-500 rounded-full shadow-md hover:bg-purple-800"
+                                        class="absolute top-4 right-4 p-2 bg-purple-500 rounded-full shadow-md hover:bg-purple-700"
                                     >
                                         <CareerCloseIcon />
                                     </button>
 
-                                    <!-- Qualifications -->
-                                    <div>
-                                        <p class="text-2xl md:text-4xl font-bold mb-4">Qualifications:</p>
-                                        <p class="text-sm md:text-base">{{ position.qualifications }}</p>
-                                    </div>
+                                    <img :src="urlFor(position.image)" alt="Position Image" class="max-w-full h-auto">
 
-                                    <!-- Notes -->
-                                    <div>
-                                        <p class="text-lg md:text-2xl font-bold mb-4">Notes:</p>
-                                        <ul class="list-disc pl-4 space-y-2 text-sm md:text-base">
-                                            <li>Remote / Hybrid Work Set-up.</li>
-                                            <li>Salary will be based on your skill set.</li>
-                                        </ul>
-                                    </div>
-
-                                    <!-- QR Code Section -->
-                                    <div class="flex items-center justify-between gap-4">
-                                        <!-- QR Code -->
-                                        <div class="w-32 h-32">
-                                            <img src="/assets/qr-code.png" alt="QR code to apply" class="w-full h-full object-contain">
-                                        </div>
-
-                                        <!-- Scan Info -->
-                                        <div class="flex-1">
-                                            <p class="text-xl md:text-2xl font-extrabold mb-2">SCAN TO APPLY!</p>
-                                            <p class="text-sm md:text-base">We can't wait to see your potential and transform our team together.</p>
-                                        </div>
-                                    </div>
                                 </div>
                             </div>
                         </CareerPopup>
@@ -168,55 +130,22 @@ inject("urlFor", urlFor);
                             class="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 p-4"
                             v-if="activePopupId === position.id"
                         >  
-                            <!-- Close Button -->
-                            <button @click="triggerPopup(position.id)" 
-                                class="absolute top-4 right-4 p-2 bg-purple-300 rounded-full shadow-md hover:bg-purple-400"
-                            >
-                                <CareerCloseIcon />
-                            </button>
-
-                            <div 
-                                class="bg-white rounded-3xl shadow-xl flex flex-col md:flex-row w-full max-w-5xl mx-auto max-h-[90vh] overflow-y-auto"
+                        <div 
+                                class="bg-purple-200 rounded-3xl shadow-xl flex flex-col md:flex-row w-full max-w-5xl mx-auto max-h-[90vh] overflow-y-auto"
                             >
                                 <!-- Image Section -->
                                 <div 
-                                    class="hidden md:flex w-1/2 items-center justify-center bg-gray-100 rounded-l-3xl p-8"
+                                    class="hidden md:flex flex-col w-full items-center justify-center bg-purple-100 rounded-l-3xl px-8 relative"
                                 >
+                                    <!-- Close Button -->
+                                    <button @click="triggerPopup(position.id)" 
+                                        class="absolute top-4 right-4 p-2 bg-purple-500 rounded-full shadow-md hover:bg-purple-700"
+                                    >
+                                        <CareerCloseIcon />
+                                    </button>
+
                                     <img :src="urlFor(position.image)" alt="Position Image" class="max-w-full h-auto">
-                                </div>
 
-                                <!-- Content Section -->
-                                <div 
-                                    class="w-full md:w-1/2 p-8 space-y-6"
-                                >
-                                    <!-- Qualifications -->
-                                    <div>
-                                        <p class="text-2xl md:text-4xl font-bold mb-4">Qualifications:</p>
-                                        <p class="text-sm md:text-base">{{ position.qualifications }}</p>
-                                    </div>
-
-                                    <!-- Notes -->
-                                    <div>
-                                        <p class="text-lg md:text-2xl font-bold mb-4">Notes:</p>
-                                        <ul class="list-disc pl-4 space-y-2 text-sm md:text-base">
-                                            <li>Remote / Hybrid Work Set-up.</li>
-                                            <li>Salary will be based on your skill set.</li>
-                                        </ul>
-                                    </div>
-
-                                    <!-- QR Code Section -->
-                                    <div class="flex items-center justify-between gap-4">
-                                        <!-- QR Code -->
-                                        <div class="w-32 h-32">
-                                            <img src="/assets/qr-code.png" alt="QR code to apply" class="w-full h-full object-contain">
-                                        </div>
-
-                                        <!-- Scan Info -->
-                                        <div class="flex-1">
-                                            <p class="text-xl md:text-2xl font-extrabold mb-2">SCAN TO APPLY!</p>
-                                            <p class="text-sm md:text-base">We can't wait to see your potential and transform our team together.</p>
-                                        </div>
-                                    </div>
                                 </div>
                             </div>
                         </CareerPopup>
