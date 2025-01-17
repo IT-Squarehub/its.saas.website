@@ -22,7 +22,7 @@ const { data: careerData, pending, error } = await useSanityQuery(query)
 <template>
     <div>
         <!-- Career Hero section -->
-        <div class=" bg-violet-400 px-32 pt-32 pb-44 max-[550px]:px-4 max-[1200px]:px-16">
+        <div class=" bg-purple-300 px-32 pt-32 pb-44 max-[550px]:px-4 max-[1200px]:px-16 relative -z-10">
             <p class=" text-[80px] max-[550px]:text-4xl max-[1050px]:text-6xl">
                 {{ careerData?.heading }}
             </p>
@@ -30,7 +30,7 @@ const { data: careerData, pending, error } = await useSanityQuery(query)
             <p class=" text-2xl pl-2 max-[550px]:text-lg max-[1050px]:pt-4 ">
                 {{ careerData?.subtitle }}
             </p>
-            <img src="/assets/shapes.png" alt="Hero Image" class=" h-96 w-96 absolute top-0 right-0 object-cover rotate-180 max-[1450px]:hidden" />
+            <img src="/assets/shapes.png" alt="Hero Image" class=" h-96 w-96 absolute bottom-0 right-0 object-cover rotate-90 -z-10" />
         </div>
 
     </div>
