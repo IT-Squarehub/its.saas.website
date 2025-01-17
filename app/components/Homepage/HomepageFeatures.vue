@@ -10,9 +10,11 @@ interface Feature {
 }
 
 interface FeaturesSection {
-    heading: string
-    subtitle: string
-    features: Feature[]
+    featuresSection: {
+        heading: string
+        subtitle: string
+        features: Feature[]
+    }
 }
 
 const query = groq`*[_type == "homepage"][0]{

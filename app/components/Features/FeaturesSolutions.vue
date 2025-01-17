@@ -1,36 +1,50 @@
 <script setup lang="ts">
-const selectedFeature = ref('timesheet')
+const selectedFeature = ref(1)
 
-interface Feature {
-    id: string
-    title: string
-    description: string
-    image: string
+interface SolutionsSection {
+    solutions: {
+        heading: string,
+        subtitle: string,
+        items: Feature[]
+    }
 }
 
-const features: Feature[] = [
-    {
-        id: 'timesheet',
-        title: 'Timesheet Management',
-        description: 'Track employee hours accurately with task-specific timesheets for enhanced productivity insights.',
-        image: '/assets/time-management.jpg'
-    },
-    {
-        id: 'leave',
-        title: 'Leave Management',
-        description: 'Manage leave balances easily with automatic credit tracking and detailed booking overviews.',
-        image: '/assets/leave-management.jpg'
-    },
-    {
-        id: 'request',
-        title: 'Request Management',
-        description: 'Streamline software requests with our transparent request system that tracks progress at every stage.',
-        image: '/assets/request-management.jpg'
+interface Feature {
+    id: number,
+    title: string,
+    description: string,
+    image: {
+        asset: {
+            url: string
+        }
     }
-]
+}
+
+const query = groq`*[_type == "featuresPage"][0] {
+  solutions {
+    heading,
+    subtitle,
+    items[] {
+      id,
+      title,
+      description,
+      image {
+        asset-> {
+          url
+        }
+      }
+    }
+  }
+}`
+
+// Fetch data from Sanity
+const { data } = await useSanityQuery<SolutionsSection>(query)
+
+// Get the features array from the solutions section
+const features = computed(() => data.value?.solutions.items || [])
 
 const selectedFeatureData = computed(() =>
-    features.find(f => f.id === selectedFeature.value)
+    features.value.find(f => f.id === selectedFeature.value)
 )
 </script>
 
@@ -52,17 +66,16 @@ const selectedFeatureData = computed(() =>
             <!-- Title -->
             <div class="text-center mb-4 flex items-center justify-center">
                 <h2 class="text-4xl md:text-6xl font-bold inline-flex items-center lg:gap-4">
-                    A Productivity Powerhouse.
+                    {{ data?.solutions.heading }}
                     <div class="-left-8 bottom-16">
-                        <img class="rotate-12 hidden lg:block" src="/assets/checkbox.png" width="80px" s>
+                        <img class="rotate-12 hidden lg:block" src="/assets/checkbox.png" width="80px">
                     </div>
                 </h2>
             </div>
 
             <!-- Description -->
             <p class="text-xl text-gray-600 text-center mb-12 max-w-3xl mx-auto">
-                Simple, flexible, and powerful. All it takes are boards, lists, and cards to get a clear view of who's
-                doing what and what needs to get done.
+                {{ data?.solutions.subtitle }}
             </p>
 
             <!-- Main Content -->
@@ -70,7 +83,8 @@ const selectedFeatureData = computed(() =>
                 <!-- Feature Tiles -->
                 <div class="space-y-4" ref="cardsContainer">
                     <button v-for="feature in features" :key="feature.id" @click="selectedFeature = feature.id"
-                        class="w-full text-center md:text-left p-6 rounded-lg transition-all duration-200 border-2 border-purple-300" :class="[
+                        class="w-full text-center md:text-left p-6 rounded-lg transition-all duration-200 border-2 border-purple-300"
+                        :class="[
                             selectedFeature === feature.id
                                 ? 'bg-purple-600 text-white hover:scale-105'
                                 : 'bg-white hover:bg-purple-50 hover:scale-105'
@@ -89,7 +103,7 @@ const selectedFeatureData = computed(() =>
                 <!-- Feature Image -->
                 <div class="h-full">
                     <div class="overflow-hidden h-full shadow-xl rounded-lg">
-                        <NuxtImg :src="selectedFeatureData?.image" :alt="selectedFeatureData?.title"
+                        <NuxtImg :src="selectedFeatureData?.image.asset.url" :alt="selectedFeatureData?.title"
                             class="w-full h-full object-cover" loading="lazy" />
                     </div>
                 </div>

@@ -1,5 +1,30 @@
 <script setup lang="ts">
-// You can add any interactive functionality here if needed
+  interface OverviewSection {
+    overview: {
+      heading: string,
+      subtitle: string,
+      image: {
+        asset: {
+          url: string
+        }
+      }
+    }
+  }
+
+  const query = groq`*[_type == "featuresPage"][0] {
+    overview {
+      heading,
+      subtitle,
+      image {
+        asset-> {
+          url
+        }
+      }
+    }
+  }`
+
+  // Fetch data from Sanity
+  const { data: overviewData } = await useSanityQuery<OverviewSection>(query)
 </script>
 
 <template>
@@ -20,33 +45,34 @@
       <!-- Title -->
       <div class="flex justify-center mb-6">
         <div class="rounded-lg px-6 py-3">
-          <h2 class="text-6xl text-center font-bold text-purple-700">Your HR Command Center</h2>
+          <h2 class="text-6xl text-center font-bold text-purple-700">{{ overviewData?.overview.heading }}</h2>
         </div>
       </div>
 
       <!-- Description -->
       <p class="text-xl text-gray-600 max-w-3xl mx-auto mb-16 text-center">
-        Start your day with clarity. Our intelligent dashboard presents critical information at a glance—from daily
-        activities to upcoming time-offs.
+        {{ overviewData?.overview.subtitle }}
       </p>
 
       <!-- Dashboard Image Container -->
       <div class="relative max-w-5xl mx-auto">
         <!-- Main Dashboard Image -->
         <div class="bg-white rounded-lg shadow-xl p-4">
-          <img src="/assets/dashboard.png" alt="HR Command Center Dashboard" class="w-full rounded-lg" />
+          <NuxtImg :src="overviewData?.overview.image.asset.url" alt="HR Command Center Dashboard" class="w-full rounded-lg" />
         </div>
 
         <!-- Decorative Elements -->
+
+        <!-- Clockbox Icon -->
         <div class="absolute xl:-left-8 xl:bottom-16 w-16 bottom-16 left-16 md:w-24 ">
-          <img class="-rotate-[28deg] -translate-x-14 translate-y-28" src="/assets/clockbox.png" width="120px"
-            height="120px">
+          <NuxtImg class="-rotate-[28deg] -translate-x-14 translate-y-28" src="/assets/clockbox.png" width="120px"
+            height="120px" />
         </div>
 
         <!-- Calendar Icon -->
         <div class="absolute right-8 top-0 w-16 md:w-24">
-          <img class="-rotate-[-21deg] translate-x-10 -translate-y-5" src="/assets/datebox.png" width="120px"
-            height="120px">
+          <NuxtImg class="-rotate-[-21deg] translate-x-10 -translate-y-5" src="/assets/datebox.png" width="120px"
+            height="120px" />
         </div>
       </div>
     </div>
