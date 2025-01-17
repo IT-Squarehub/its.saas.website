@@ -28,12 +28,12 @@ inject("urlFor", urlFor);
 <template>
     <!-- SHOULD BE IN v-for FOR SANITY IMPLEMENTATION -->
     <div>
-        <div class=" grid grid-cols-2 gap-16  
+        <div class=" grid grid-cols-1 min-[900px]:grid-cols-2 gap-16  
                     mx-32 max-[1050px]:mx-8 mt-[-100px] max-[1200px]:mx-32 
-                    max-[800px]:hidden">
+                    ">
 
             <div v-for="position in careerData.positions" class="">
-                <div class=" bg-teal-100 rounded-3xl shadow-xl px-8 content-center min-h-96 max-h-96" >
+                <div class=" bg-slate-50 border-2 border-purple-500 rounded-3xl shadow-xl px-8 content-center min-h-80 max-h-96 hover:bg-purple-100 hover:scale-105 transition-all ease-in-out duration-300" >
                     <p v-if="position.availability" class=" text-xl ">
                         <span class="bg-green-300 rounded-2xl px-4">Available</span>
                     </p>
@@ -54,7 +54,7 @@ inject("urlFor", urlFor);
 
                     <br>
 
-                    <p class=" text-2xl font-semibold">
+                    <p class=" text-lg ">
                         <span class="bg-violet-300 rounded-2xl px-4 py-1">
                             <button @click="triggerPopup(position.id)">Apply Now</button>
                         </span>
@@ -100,70 +100,7 @@ inject("urlFor", urlFor);
     </div>
 
     
-             <!-- Max 800px career cards -->
-             <div class="flex flex-col gap-8 mx-16 max-[500px]:mx-5 mt-[-100px]
-                        max-[800px]:visible min-[800px]:hidden ">
-                <div v-for="position in careerData.positions" 
-                    class=" bg-teal-100 rounded-3xl shadow-xl p-16 max-[500px]:p-6 ">
-                    <p v-if="position.availability" class=" text-xl ">
-                        <span class="bg-green-300 rounded-2xl px-4">Available</span>
-                    </p>
-                    <p v-else class=" text-xl ">
-                        <span class="bg-red-300 rounded-2xl px-4">Not Available</span>
-                    </p>
-                    
-
-                    <p class=" text-3xl mt-3">
-                        {{ position.name }}
-                    </p>
-                    <br>
-                    <p class=" text-lg">
-                        {{ position.description }}
-                    </p>
-
-                    <br>
-
-                    <p class=" text-2xl font-semibold">
-                        <span class="bg-violet-300 rounded-2xl px-4 py-1">
-                            <button @click="triggerPopup(position.id)">Apply Now</button>
-                        </span>
-                    </p>
-
-                    <!-- Transition Wrapper -->
-                    <Transition name="fade">  
-                        <CareerPopup 
-                            class="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 p-4"
-                            v-if="activePopupId === position.id"
-                        >  
-                        <div 
-                                class="bg-purple-200 rounded-3xl shadow-xl flex flex-col md:flex-row w-full max-w-5xl mx-auto max-h-[90vh] overflow-y-auto"
-                            >
-                                <!-- Image Section -->
-                                <div 
-                                    class=" flex-col w-full bg-purple-100 rounded-l-3xl px-8 relative"
-                                >
-                                    <!-- Close Button -->
-                                    <button @click="triggerPopup(position.id)" 
-                                        class="absolute top-4 right-4 p-2 bg-purple-500 rounded-full shadow-md hover:bg-purple-700"
-                                    >
-                                        <CareerCloseIcon />
-                                    </button>
-
-                                    <img :src="urlFor(position.image)" alt="Position Image" class="max-w-full h-auto"
-                                        v-if=position.availability
-                                    >
-
-                                    <p v-else class=" text-4xl py-8 px-4">
-                                        Not available.
-                                    </p>
-
-                                </div>
-                            </div>
-                        </CareerPopup>
-
-                    </Transition>
-                </div>
-            </div>
+            
 
             <!-- Link Button -->
             <br>
