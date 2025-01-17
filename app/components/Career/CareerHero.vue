@@ -8,24 +8,17 @@ const { data: careerData, pending, error } = await useSanityQuery(query)
 
 <template>
     <div>
-        <!-- Career Hero section -->
-        <div class=" bg-purple-300 px-32 pt-32 pb-44 max-[550px]:px-4 max-[1200px]:px-16 relative -z-10">
-            <p class=" text-[80px] max-[550px]:text-4xl max-[1050px]:text-6xl font-bold
-                        max-[550px]:pr-16 pr-44 min-[801px]:pr-16">
-                {{ careerData?.heading }}
-            </p>
+        <div class="relative bg-purple-300 text-white lg:pb-32 lg:pt-44 lg:px-10 pb-44 pt-60 px-4 -z-10">
 
-            <p class=" text-2xl pl-2 max-[550px]:text-lg max-[1050px]:pt-4 font-semibold 
-                        max-[550px]:pr-36 pr-36 min-[801px]:pr-56">
-                {{ careerData?.subtitle }}
-            </p>
-
-            <img src="/assets/shapes.png" alt="Hero Image" 
-            class=" h-96 w-96 max-[600px]:w-64 max-[600px]:h-64 
-                    max-[800px]:opacity-70  
-                    absolute bottom-16 right-0 object-cover rotate-180 -z-10" />
-
+        <div
+            class="flex flex-col gap-5 justify-center items-center lg:items-start min-h-[3rem] md:min-h-[6rem] leading-tight md:w-auto lg:w-[40rem] xl:w-[50rem] px-28 lg:px-0">
+            <h1 class="text-5xl text-center lg:text-left font-bold text-black z-30">{{ careerData?.heading }}</h1>
+            <p class="text-xl text-center lg:text-left font-Inter font-thin text-black z-30">{{ careerData?.subtitle }}</p>
         </div>
-
+        <img src="/assets/shapes.png" alt="Hero Image"
+            class="sm:w-[13rem] lg:w-96 lg:hidden xl:w-auto w-48 hidden sm:block absolute top-0 left-0 object-cover" />
+        <img src="/assets/shapes.png" alt="Hero Image"
+            class="sm:w-[13rem] lg:w-96 xl:w-auto w-48 hidden sm:block absolute bottom-0 right-0 object-cover rotate-180" />
+    </div>
     </div>
 </template>

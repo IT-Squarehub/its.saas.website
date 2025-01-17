@@ -188,7 +188,7 @@ inject("urlFor", urlFor);
 <style>
 /* Fade-in and fade-out animation */
 .fade-enter-active, .fade-leave-active {
-    transition: opacity 0.8s ease-in-out;
+    transition: opacity 0.3s ease-in-out;
 }
 
 .fade-enter-from, .fade-leave-to {
