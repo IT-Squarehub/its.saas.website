@@ -5,6 +5,7 @@
     <div>
         <HomepageHero />
         <HomepageFeatures />
+        <HomepageReviews />
         <HomepageBanner />
     </div>
 </template>
