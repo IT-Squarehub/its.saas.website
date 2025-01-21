@@ -122,14 +122,15 @@ inject("urlFor", urlFor);
             <br>
             <NuxtLink
                 to="https://www.itsquarehub.com/careers"
+                data-aos="zoom-in"
             >
-            <div    class=" hover:scale-105 transition-all ease-in-out duration-300 
-                    mb-24 mt-24 text-center w-full"
-                    data-aos="zoom-in"
+            <div    class=" hover:scale-125 transition-all ease-in-out duration-500 
+                    mb-24 mt-24 text-center "
             >
 
-                <p class=" text-white">
-                    <span class=" bg-violet-800 p-4 rounded-xl"> 
+                <p class=" text-white ">
+                    <span class=" bg-violet-800 hover:bg-violet-500 
+                                transition-all ease-in-out duration-500 p-4 rounded-xl "> 
                         Find More Jobs in ITS Hub
                     </span>
                 </p>
