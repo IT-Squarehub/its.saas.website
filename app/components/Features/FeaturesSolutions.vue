@@ -93,9 +93,8 @@ onMounted(() => {
             <!-- Main Content -->
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <!-- Feature Tiles -->
-                <div class="space-y-4" ref="cardsContainer">
+                <div class="space-y-4" ref="cardsContainer" data-aos="fade-right">
                     <button v-for="feature in features" :key="feature.id" @click="selectedFeature = feature.id"
-                        data-aos="fade-right"
                         class="w-full text-center md:text-left p-6 rounded-lg transition-all duration-200 border-2 border-purple-300"
                         :class="[
                             selectedFeature === feature.id
