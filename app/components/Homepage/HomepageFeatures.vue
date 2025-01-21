@@ -1,4 +1,7 @@
 <script setup lang="ts">
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+
 interface Feature {
     title: string
     subtitle: string
@@ -31,6 +34,14 @@ const query = groq`*[_type == "homepage"][0]{
   }
 }`
 
+// Initialize AOS
+onMounted(() => {
+    AOS.init({
+        duration: 500, // Animation duration in ms
+        easing: 'ease-out', // Easing type
+        once: false // Whether animation should happen only once
+    });
+});
 
 // Fetch data from Sanity
 const { data: featuresData } = await useSanityQuery<FeaturesSection>(query)
@@ -45,7 +56,7 @@ const { data: featuresData } = await useSanityQuery<FeaturesSection>(query)
             <!-- Features grid -->
             <div class="grid md:grid-cols-2 lg:grid-cols-2 gap-6">
                 <!-- Main heading section -->
-                <div class=" flex flex-col">
+                <div class=" flex flex-col" data-aos="fade-up">
                     <div class="flex items-center justify-center md:justify-start gap-2 mb-8">
                         <div class="p-2 bg-purple-100 rounded-lg">
                             <Icon name="heroicons:squares-2x2" class="w-6 h-6 text-purple-600" />
@@ -59,7 +70,7 @@ const { data: featuresData } = await useSanityQuery<FeaturesSection>(query)
                         {{ featuresData.featuresSection.subtitle }}
                     </p>
                 </div>
-                <div v-for="feature in featuresData.featuresSection.features" :key="feature.title"
+                <div v-for="feature in featuresData.featuresSection.features" :key="feature.title" data-aos="zoom-in"
                     class="bg-white rounded-2xl p-5 shadow-sm hover:shadow-md transition-shadow border-2 border-purple-300">
                     <img :src="feature.image.asset.url" :alt="feature.title"
                         class="w-full h-48 object-cover rounded-xl mb-6">
@@ -70,3 +81,8 @@ const { data: featuresData } = await useSanityQuery<FeaturesSection>(query)
         </div>
     </div>
 </template>
+
+<style>
+/* Import AOS styles */
+@import 'aos/dist/aos.css';
+</style>
