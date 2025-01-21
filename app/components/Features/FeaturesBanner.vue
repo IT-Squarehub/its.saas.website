@@ -43,8 +43,9 @@ onMounted(() => {
                 bannerData?.features.banner.heading}}</h1>
             <p class="md:text-lg text-md font-Inter font-thin text-black z-10" data-aos="fade-up">{{
                 bannerData?.features.banner.subtitle }}</p>
-            <button class="bg-white text-black font-semibold px-4 py-2 rounded mt-4" data-aos="fade-up">Get
-                Started</button>
+            <NuxtLink :to="{ path: '/contact', hash: '#form' }"
+                class="bg-white text-black font-semibold px-4 py-2 rounded mt-4" data-aos="fade-up">Get
+                Started</NuxtLink>
         </div>
         <img src="/assets/shapes.png" alt="Hero Image" data-aos="fade-left"
             class="sm:block sm:w-[13rem] lg:w-80 xl:w-auto w-40 hidden absolute bottom-0 right-0 object-cover rotate-180" />

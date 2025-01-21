@@ -65,11 +65,11 @@ onMounted(() => {
           {{ heroData?.hero?.heading || 'Hero Title' }}
         </h1>
 
-        <button
+        <NuxtLink :to="{ path: '/contact', hash: '#form' }"
           class="bg-purple-700 px-6 py-3 rounded-md font-normal text-white flex justify-center items-center gap-2 text-sm md:text-base hover:bg-purple-800 transition-colors">
           <Icon name="mdi:eye" />
           <span>Enquire Now</span>
-        </button>
+        </NuxtLink>
       </div>
 
       <!-- Image Container -->
