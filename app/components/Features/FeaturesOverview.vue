@@ -1,4 +1,7 @@
 <script setup lang="ts">
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+
   interface OverviewSection {
     overview: {
       heading: string,
@@ -25,13 +28,22 @@
 
   // Fetch data from Sanity
   const { data: overviewData } = await useSanityQuery<OverviewSection>(query)
+
+  // Initialize AOS
+  onMounted(() => {
+    AOS.init({
+      duration: 1000, // Animation duration in ms
+      easing: 'ease-out', // Easing type
+      once: false // Whether animation should happen only once
+    });
+  });
 </script>
 
 <template>
   <section class="w-full bg-[url('/assets/net-background.png')] bg-cover bg-center py-32">
     <div class="mx-auto px-10">
       <!-- Overview Label -->
-      <div class="flex items-center justify-center mb-6">
+      <div class="flex items-center justify-center mb-6" data-aos="fade-up">
         <div class="inline-flex items-center gap-2 px-4 py-1 rounded-full bg-purple-100">
           <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path
@@ -43,34 +55,35 @@
       </div>
 
       <!-- Title -->
-      <div class="flex justify-center mb-6">
+      <div class="flex justify-center mb-6" data-aos="fade-up">
         <div class="rounded-lg px-6 py-3">
           <h2 class="text-6xl text-center font-bold text-purple-700">{{ overviewData?.overview.heading }}</h2>
         </div>
       </div>
 
       <!-- Description -->
-      <p class="text-xl text-gray-600 max-w-3xl mx-auto mb-16 text-center">
+      <p class="text-xl text-gray-600 max-w-3xl mx-auto mb-16 text-center" data-aos="fade-up">
         {{ overviewData?.overview.subtitle }}
       </p>
 
       <!-- Dashboard Image Container -->
       <div class="relative max-w-5xl mx-auto">
         <!-- Main Dashboard Image -->
-        <div class="bg-white rounded-lg shadow-xl p-4">
-          <NuxtImg :src="overviewData?.overview.image.asset.url" alt="HR Command Center Dashboard" class="w-full rounded-lg" />
+        <div class="bg-white rounded-lg shadow-xl p-4" data-aos="fade-up">
+          <NuxtImg :src="overviewData?.overview.image.asset.url" alt="HR Command Center Dashboard"
+            class="w-full rounded-lg" />
         </div>
 
         <!-- Decorative Elements -->
 
         <!-- Clockbox Icon -->
-        <div class="absolute xl:-left-8 xl:bottom-16 w-16 bottom-16 left-16 md:w-24 ">
+        <div class="absolute xl:-left-8 xl:bottom-16 w-16 bottom-16 left-16 md:w-24 " data-aos="fade-up">
           <NuxtImg class="-rotate-[28deg] -translate-x-14 translate-y-28" src="/assets/clockbox.png" width="120px"
             height="120px" />
         </div>
 
         <!-- Calendar Icon -->
-        <div class="absolute right-8 top-0 w-16 md:w-24">
+        <div class="absolute right-8 top-0 w-16 md:w-24" data-aos="fade-up" data-aos-delay="200">
           <NuxtImg class="-rotate-[-21deg] translate-x-10 -translate-y-5" src="/assets/datebox.png" width="120px"
             height="120px" />
         </div>

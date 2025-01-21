@@ -1,4 +1,7 @@
 <script setup lang="ts">
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+
 interface DetailsSection {
     features: {
         heading: string,
@@ -38,12 +41,21 @@ const { data: detailsData } = await useSanityQuery<DetailsSection>(query)
 
 // Computed property to ensure we have the items safely
 const featureItems = computed(() => detailsData.value?.features.items || [])
+
+// Initialize AOS
+onMounted(() => {
+    AOS.init({
+        duration: 800, // Animation duration in ms
+        easing: 'ease-in-out', // Easing type
+        once: false // Whether animation should happen only once
+    });
+});
 </script>
 
 <template>
     <section class="max-w-7xl mx-auto px-10 py-16">
         <!-- Main Heading -->
-        <div class="text-center mb-12">
+        <div class="text-center mb-12" data-aos="fade-up">
             <h1 class="text-4xl md:text-5xl font-bold mb-4">
                 {{ detailsData?.features.heading }}
             </h1>
@@ -55,7 +67,7 @@ const featureItems = computed(() => detailsData.value?.features.items || [])
         <!-- Features Grid -->
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
             <!-- First Two Items in 2-column Grid -->
-            <div v-for="(item, index) in featureItems.slice(0, 2)" :key="index"
+            <div v-for="(item, index) in featureItems.slice(0, 2)" :key="index" data-aos="zoom-in"
                 class="bg-white rounded-xl p-8 shadow-sm border border-purple-300 transition-all duration-200 ease-in-out hover:scale-105 hover:border-purple-300">
                 <h2 class="text-2xl font-semibold text-purple-700 mb-4 text-center">
                     {{ item.title }}
@@ -70,7 +82,8 @@ const featureItems = computed(() => detailsData.value?.features.items || [])
 
             <!-- Last Item Spanning Full Width -->
             <div v-if="featureItems[2]"
-                class="bg-white rounded-xl p-8 shadow-sm border border-purple-300 md:col-span-2 transition-all duration-200 ease-in-out hover:scale-105 hover:border-purple-300">
+                class="bg-white rounded-xl p-8 shadow-sm border border-purple-300 md:col-span-2 transition-all duration-200 ease-in-out hover:scale-105 hover:border-purple-300"
+                data-aos="zoom-in">
                 <h2 class="text-2xl font-semibold text-purple-700 mb-4 text-center">
                     {{ featureItems[2].title }}
                 </h2>
