@@ -123,8 +123,9 @@ inject("urlFor", urlFor);
             <NuxtLink
                 to="https://www.itsquarehub.com/careers"
             >
-            <div class=" mb-24 mt-24 text-center w-full"
-                    data-aos="zoom-out"
+            <div    class=" hover:scale-105 transition-all ease-in-out duration-300 
+                    mb-24 mt-24 text-center w-full"
+                    data-aos="zoom-in"
             >
 
                 <p class=" text-white">
