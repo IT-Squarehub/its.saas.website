@@ -97,7 +97,7 @@ inject("urlFor", urlFor);
                     <!-- Image Section -->
                     <div 
                         v-else 
-                        class="hidden md:flex flex-col w-full bg-purple-100 rounded-l-3xl px-8 relative"
+                        class="flex-col w-full bg-purple-100 rounded-l-3xl px-8 relative"
                     >
                         <button 
                             @click="triggerPopup(null)" 
@@ -120,9 +120,11 @@ inject("urlFor", urlFor);
 
             <!-- Link Button -->
             <br>
+            <div class=" flex object-center justify-center content-center items-center">
             <NuxtLink
                 to="https://www.itsquarehub.com/careers"
                 data-aos="zoom-in"
+                class=" inline-block "
             >
             <div    class=" hover:scale-125 transition-all ease-in-out duration-500 
                     mb-24 mt-24 text-center "
@@ -137,6 +139,7 @@ inject("urlFor", urlFor);
 
             </div>
             </NuxtLink>
+            </div>
 
         <hr class=" bg-slate-400 pt-1 mx-56 mb-32 max-[1200px]:mx-32 max-[800px]:mx-16">
 
