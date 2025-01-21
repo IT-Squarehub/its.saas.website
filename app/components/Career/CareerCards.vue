@@ -11,14 +11,23 @@ onMounted(() => {
   });
 });
 
-const activePopupId = ref(null); // Track the ID of the active popup
+// Reactive states
+const activePopupId = ref(null);
+const loading = ref(false);
 
+// Trigger popup
 function triggerPopup(positionId) {
     if (activePopupId.value === positionId) {
         activePopupId.value = null; // Close if the same popup is clicked again
     } else {
         activePopupId.value = positionId; // Open the popup for the clicked position
+        //loading.value = true; // Show loading spinner
     }
+}
+
+// Image load handler
+function onImageLoad() {
+    loading.value = false; // Hide spinner when the image loads
 }
 
 
@@ -71,32 +80,42 @@ inject("urlFor", urlFor);
         
         <!-- Popup with Teleport -->
         <teleport to="body">
-            <transition name="popup">
-                <CareerPopup 
-                    v-if="activePopupId" 
-                    class="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 p-4 mt-16"
-                    @close="triggerPopup(null)"
+        <transition name="popup">
+            <CareerPopup 
+                v-if="activePopupId" 
+                class="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50"
+                @close="triggerPopup(null)"
+            >
+                <div 
+                    class="bg-purple-200 rounded-3xl shadow-xl flex flex-col md:flex-row w-full max-w-5xl mx-auto max-h-[90vh] overflow-y-auto relative"
                 >
-                    <div 
-                        class="bg-purple-200 rounded-3xl shadow-xl flex flex-col md:flex-row w-full max-w-5xl mx-auto max-h-[90vh] overflow-y-auto"
-                    >
-                        <div class=" md:flex flex-col w-full bg-purple-100 rounded-l-3xl px-8 relative">
-                            <button 
-                                @click="triggerPopup(null)" 
-                                class="absolute top-4 right-4 p-2 bg-purple-500 rounded-full shadow-md hover:bg-purple-700"
-                            >
-                                <CareerCloseIcon />
-                            </button>
-                            <img 
-                                :src="urlFor(careerData.positions.find(pos => pos.id === activePopupId)?.image)" 
-                                alt="Position Image" 
-                                class="max-w-full h-auto"
-                            >
-                        </div>
+                    <!-- Loading Spinner -->
+                    <div v-if="loading" class="flex justify-center items-center w-full h-full bg-gray-100">
+                        <div class="animate-spin rounded-full h-16 w-16 border-t-4 border-purple-500"></div>
                     </div>
-                </CareerPopup>
-            </transition>
-        </teleport>
+
+                    <!-- Image Section -->
+                    <div 
+                        v-else 
+                        class="hidden md:flex flex-col w-full bg-purple-100 rounded-l-3xl px-8 relative"
+                    >
+                        <button 
+                            @click="triggerPopup(null)" 
+                            class="absolute top-4 right-4 p-2 bg-purple-500 rounded-full shadow-md hover:bg-purple-700"
+                        >
+                            <CareerCloseIcon />
+                        </button>
+                        <img 
+                            :src="urlFor(careerData.positions.find(pos => pos.id === activePopupId)?.image)" 
+                            alt="Position Image" 
+                            @load="onImageLoad" 
+                            class="max-w-full h-auto"
+                        >
+                    </div>
+                </div>
+            </CareerPopup>
+        </transition>
+    </teleport>
     </div>
 
             <!-- Link Button -->
@@ -128,5 +147,19 @@ inject("urlFor", urlFor);
 .popup-enter-from, .popup-leave-to {
     opacity: 0;
     transform: scale(0.9);
+}
+
+/* Spinner animation */
+.animate-spin {
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
 }
 </style>
