@@ -1,19 +1,19 @@
+<!-- Without Padding -->
 <template>
-    <nav class="bg-white fixed top-0 left-0 right-0 z-50 shadow-md border-b-4 border-purple-400 ">
-        <div class=" mx-auto px-5 md:px-7 sm:px-5">
-            <div class="flex h-20 justify-between">
-                <!-- Logo -->
-                <div class="md:hidden flex flex-row justify-center items-center gap-3">
+    <nav class="bg-white fixed top-0 left-0 right-0 z-50 shadow-sm">
+        <div class="mx-auto px-5 md:px-7 sm:px-5">
+            <div class="flex h-16 justify-between">
+                
+                <div class="flex flex-row justify-center items-center gap-3">
                     <div>
                         <img src="~/public/logo.svg" alt="" class="h-10 w-auto" />
                     </div>
-                    <NuxtLink to="/" class="flex-shrink-0 items-center flex text-lg">
+                    <NuxtLink to="/" class="flex-shrink-0 items-center flex">
                         <p class="leading-4">Human Resources<br><span class="font-bold">Information System</span></p>
                     </NuxtLink>
                 </div>
 
-
-                <!-- Mobile menu button -->
+                
                 <button @click="toggleMenu" class="md:hidden">
                     <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path v-if="!isMenuOpen" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -23,56 +23,151 @@
                     </svg>
                 </button>
 
-                <!-- Desktop menu -->
-                <div class="hidden md:flex items-center justify-between flex-1">
-                    <!-- Logo -->
-                    <NuxtLink to="/" class="flex flex-shrink-0 items-center">
-                        <!-- <NuxtImg class="h-6 w-auto" densities="x1" src="/assets/logo.png" alt="ITS Logo" /> -->
-                        <div class="flex items-center space-x-2">
-                            <div>
-                                <img src="~/public/logo.svg" alt="" class="h-10 w-auto" />
+                
+                <div class="hidden md:flex items-center space-x-8">
+                    <div class="relative">
+                        <NuxtLink to="/" class="px-4 py-2 text-gray-800 hover:text-purple-600 transition-colors">
+                            Home
+                            <div v-if="$route.path === '/'" 
+                                 class="absolute bottom-0 -mb-3 left-0 w-full h-1 bg-purple-600 rounded-t-sm">
                             </div>
-                            <div>
-                                <p class="leading-4 text-lg">Human Resources <br><span class="font-bold">Information
-                                        System</span></p>
-                                <!-- <div class="font-bold text-2xl"><span class="text-itspurple">ITS</span> HRIS</div> -->
-                            </div>
-                        </div>
-                    </NuxtLink>
-                    <div class="flex space-x-7 text-base justify-center items-center">
-                        <NuxtLink to="/">Home</NuxtLink>
-                        <NuxtLink :to="{ path: '/features' }">Features</NuxtLink>
-                        <NuxtLink :to="{ path: '/career', hash: '#careers' }">Careers</NuxtLink>
-                        <NuxtLink :to="{ path: '/contact' }">Contact Us</NuxtLink>
-
+                        </NuxtLink>
                     </div>
-                    <!-- <NuxtLink :to="{ path: '/', hash: '#contacts' }"
-                        class="bg-gradient-to-t from-gray-700 to-itspurple hover:bg-yellow-700 text-white font-medium py-2 px-6 rounded-full">
-                        Contact Us
-                    </NuxtLink> -->
+                    <div class="relative">
+                        <NuxtLink to="/features" class="px-4 py-2 text-gray-800 hover:text-purple-600 transition-colors">
+                            Features
+                            <div v-if="$route.path === '/features'" 
+                                 class="absolute bottom-0 -mb-3 left-0 w-full h-1 bg-purple-600 rounded-t-sm">
+                            </div>
+                        </NuxtLink>
+                    </div>
+                    <div class="relative">
+                        <NuxtLink to="/career" class="px-4 py-2 text-gray-800 hover:text-purple-600 transition-colors">
+                            Careers
+                            <div v-if="$route.path === '/career'" 
+                                 class="absolute bottom-0 -mb-3 left-0 w-full h-1 bg-purple-600 rounded-t-sm">
+                            </div>
+                        </NuxtLink>
+                    </div>
+                    <div class="relative">
+                        <NuxtLink to="/contact" class="px-4 py-2 text-gray-800 hover:text-purple-600 transition-colors">
+                            Contact Us
+                            <div v-if="$route.path === '/contact'" 
+                                 class="absolute bottom-0 -mb-3 left-0 w-full h-1 bg-purple-600 rounded-t-sm">
+                            </div>
+                        </NuxtLink>
+                    </div>
                 </div>
             </div>
 
-            <!-- Mobile menu -->
+            
             <Transition name="drop-fade">
                 <div v-if="isMenuOpen" class="md:hidden">
-                    <div class="flex flex-col space-y-4 px-2 pt-2 pb-3 border-b-2">
-                        <NuxtLink class="text-itsblue" to="/" @click="isMenuOpen = false">Home</NuxtLink>
-                        <NuxtLink class="text-itsblue" :to="{ path: '/', hash: '#services' }"
-                            @click="isMenuOpen = false">
-                            Features</NuxtLink>
-                        <NuxtLink class="text-itsblue" :to="{ path: '/', hash: '#reviews' }"
-                            @click="isMenuOpen = false">
-                            Careers</NuxtLink>
-                        <NuxtLink class="text-itsblue" :to="{ path: '/', hash: '#reviews' }"
-                            @click="isMenuOpen = false">
-                            Contact Us</NuxtLink>
+                    <div class="flex flex-col space-y-4 px-4 py-5">
+                        <NuxtLink class="text-gray-800 hover:text-purple-600 py-2" to="/" @click="isMenuOpen = false">
+                            Home
+                        </NuxtLink>
+                        <NuxtLink class="text-gray-800 hover:text-purple-600 py-2" to="/features" @click="isMenuOpen = false">
+                            Features
+                        </NuxtLink>
+                        <NuxtLink class="text-gray-800 hover:text-purple-600 py-2" to="/career" @click="isMenuOpen = false">
+                            Careers
+                        </NuxtLink>
+                        <NuxtLink class="text-gray-800 hover:text-purple-600 py-2" to="/contact" @click="isMenuOpen = false">
+                            Contact Us
+                        </NuxtLink>
                     </div>
                 </div>
             </Transition>
         </div>
     </nav>
 </template>
+
+<!-- With Padding -->
+
+<!-- <template>
+    <nav class="bg-white fixed top-0 left-0 right-0 z-50 shadow-sm">
+        <div class="mx-auto px-6 md:px-12 lg:px-16 max-w-7xl">
+            <div class="flex h-20 justify-between">
+                
+                <div class="flex flex-row justify-center items-center gap-4">
+                    <div>
+                        <img src="~/public/logo.svg" alt="" class="h-10 w-auto" />
+                    </div>
+                    <NuxtLink to="/" class="flex-shrink-0 items-center flex">
+                        <p class="leading-4 text-gray-800">Human Resources<br><span class="font-bold">Information System</span></p>
+                    </NuxtLink>
+                </div>
+
+                
+                <button @click="toggleMenu" class="md:hidden p-2">
+                    <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path v-if="!isMenuOpen" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 6h16M4 12h16M4 18h16" />
+                        <path v-else stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </button>
+
+                
+                <div class="hidden md:flex items-center space-x-10">
+                    <div class="relative">
+                        <NuxtLink to="/" class="px-3 py-6 text-gray-800 hover:text-purple-600 transition-colors">
+                            Home
+                            <div v-if="$route.path === '/'" 
+                                 class="absolute bottom-0 -mb-3 left-0 w-full h-1 bg-purple-600 rounded-t-sm">
+                            </div>
+                        </NuxtLink>
+                    </div>
+                    <div class="relative">
+                        <NuxtLink to="/features" class="px-3 py-6 text-gray-800 hover:text-purple-600 transition-colors">
+                            Features
+                            <div v-if="$route.path === '/features'" 
+                                 class="absolute bottom-0 -mb-3 left-0 w-full h-1 bg-purple-600 rounded-t-sm">
+                            </div>
+                        </NuxtLink>
+                    </div>
+                    <div class="relative">
+                        <NuxtLink to="/career" class="px-3 py-6 text-gray-800 hover:text-purple-600 transition-colors">
+                            Careers
+                            <div v-if="$route.path === '/career'" 
+                                 class="absolute bottom-0 -mb-3 left-0 w-full h-1 bg-purple-600 rounded-t-sm">
+                            </div>
+                        </NuxtLink>
+                    </div>
+                    <div class="relative">
+                        <NuxtLink to="/contact" class="px-3 py-6 text-gray-800 hover:text-purple-600 transition-colors">
+                            Contact Us
+                            <div v-if="$route.path === '/contact'" 
+                                 class="absolute bottom-0 -mb-3 left-0 w-full h-1 bg-purple-600 rounded-t-sm">
+                            </div>
+                        </NuxtLink>
+                    </div>
+                </div>
+            </div>
+
+            
+            <Transition name="drop-fade">
+                <div v-if="isMenuOpen" class="md:hidden">
+                    <div class="flex flex-col space-y-4 px-4 py-5">
+                        <NuxtLink class="text-gray-800 hover:text-purple-600 py-2" to="/" @click="isMenuOpen = false">
+                            Home
+                        </NuxtLink>
+                        <NuxtLink class="text-gray-800 hover:text-purple-600 py-2" to="/features" @click="isMenuOpen = false">
+                            Features
+                        </NuxtLink>
+                        <NuxtLink class="text-gray-800 hover:text-purple-600 py-2" to="/career" @click="isMenuOpen = false">
+                            Careers
+                        </NuxtLink>
+                        <NuxtLink class="text-gray-800 hover:text-purple-600 py-2" to="/contact" @click="isMenuOpen = false">
+                            Contact Us
+                        </NuxtLink>
+                    </div>
+                </div>
+            </Transition>
+        </div>
+    </nav>
+</template> -->
 
 <script setup lang="ts">
 const isMenuOpen = ref(false)
