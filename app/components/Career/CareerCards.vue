@@ -29,8 +29,7 @@ inject("urlFor", urlFor);
     <!-- SHOULD BE IN v-for FOR SANITY IMPLEMENTATION -->
     <div>
         <div class=" grid grid-cols-1 min-[900px]:grid-cols-2 gap-16  
-                    mx-32 max-[1050px]:mx-8 mt-[-100px] max-[1200px]:mx-32 
-                    ">
+                    mx-32 max-[1050px]:mx-8 mt-[-100px] max-[1200px]:mx-32">
 
             <div v-for="position in careerData.positions" class="">
                 <div class=" bg-slate-50 border-2 border-purple-500 rounded-3xl shadow-xl px-8 content-center min-h-80 max-h-96 hover:bg-purple-100 hover:scale-105 transition-all ease-in-out duration-300" >
@@ -61,11 +60,11 @@ inject("urlFor", urlFor);
                     </p>
                 </div>
 
-        <!-- Transition Wrapper -->
-        <Transition name="fade">  
-            <CareerPopup 
-                            class="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 p-4"
-                            v-if="activePopupId === position.id"
+                <!-- Transition Wrapper -->
+                <Transition name="fade">  
+                    <CareerPopup 
+                        class="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 p-4"
+                        v-if="activePopupId === position.id"
                         >  
 
                             <div 
@@ -91,8 +90,9 @@ inject("urlFor", urlFor);
                                     </p>
                                 </div>
                             </div>
-                        </CareerPopup>
-        </Transition>
+                            
+                    </CareerPopup>
+                </Transition>
 
             </div>
 
