@@ -39,6 +39,7 @@ onMounted(() => {
             <p class="text-base md:text-lg font-Inter font-thin md:px-10 text-black" data-aos="fade-up"> {{
                 bannerData?.banner.subtitle }}</p>
             <NuxtLink :to="{ path: '/contact', hash: '#form' }"
+                
                 class="bg-white text-black font-semibold px-4 py-2 rounded mt-4" data-aos="fade-up">Ask
                 More</NuxtLink>
         </div>
