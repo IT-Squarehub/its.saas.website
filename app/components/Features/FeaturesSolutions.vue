@@ -1,4 +1,7 @@
 <script setup lang="ts">
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+
 const selectedFeature = ref(1)
 
 interface SolutionsSection {
@@ -46,13 +49,22 @@ const features = computed(() => data.value?.solutions.items || [])
 const selectedFeatureData = computed(() =>
     features.value.find(f => f.id === selectedFeature.value)
 )
+
+// Initialize AOS
+onMounted(() => {
+    AOS.init({
+        duration: 800, // Animation duration in ms
+        easing: 'ease-in-out', // Easing type
+        once: false // Whether animation should happen only once
+    });
+});
 </script>
 
 <template>
     <section class="w-full py-32">
         <div class="max-w-6xl mx-auto px-10">
             <!-- Solutions Label -->
-            <div class="flex items-center justify-center mb-6">
+            <div class="flex items-center justify-center mb-6" data-aos="fade-up">
                 <div class="inline-flex items-center gap-2 px-4 py-1 rounded-full bg-purple-100">
                     <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path
@@ -64,7 +76,7 @@ const selectedFeatureData = computed(() =>
             </div>
 
             <!-- Title -->
-            <div class="text-center mb-4 flex items-center justify-center">
+            <div class="text-center mb-4 flex items-center justify-center" data-aos="fade-up">
                 <h2 class="text-4xl md:text-6xl font-bold inline-flex items-center lg:gap-4">
                     {{ data?.solutions.heading }}
                     <div class="-left-8 bottom-16">
@@ -74,7 +86,7 @@ const selectedFeatureData = computed(() =>
             </div>
 
             <!-- Description -->
-            <p class="text-xl text-gray-600 text-center mb-12 max-w-3xl mx-auto">
+            <p class="text-xl text-gray-600 text-center mb-12 max-w-3xl mx-auto" data-aos="fade-up">
                 {{ data?.solutions.subtitle }}
             </p>
 
@@ -83,6 +95,7 @@ const selectedFeatureData = computed(() =>
                 <!-- Feature Tiles -->
                 <div class="space-y-4" ref="cardsContainer">
                     <button v-for="feature in features" :key="feature.id" @click="selectedFeature = feature.id"
+                        data-aos="fade-right"
                         class="w-full text-center md:text-left p-6 rounded-lg transition-all duration-200 border-2 border-purple-300"
                         :class="[
                             selectedFeature === feature.id
@@ -101,7 +114,7 @@ const selectedFeatureData = computed(() =>
                 </div>
 
                 <!-- Feature Image -->
-                <div class="h-full">
+                <div class="h-full" data-aos="fade-left">
                     <div class="overflow-hidden h-full shadow-xl rounded-lg">
                         <NuxtImg :src="selectedFeatureData?.image.asset.url" :alt="selectedFeatureData?.title"
                             class="w-full h-full object-cover" loading="lazy" />
