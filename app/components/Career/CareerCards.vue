@@ -89,21 +89,35 @@ function goToPage(page) {
             class="grid grid-cols-1 min-[900px]:grid-cols-2 gap-16 mx-32 max-[1050px]:mx-8 mt-[-100px] max-[1200px]:mx-32">
             <div v-for="position in paginatedPositions" :key="position.id" class="" data-aos="zoom-in"
                 data-aos-duration="800">
-                <div class="bg-slate-50 border-2 border-purple-500 rounded-3xl 
+                <div v-if="position.availability"
+                            class="bg-slate-50 border-2 border-purple-500 rounded-3xl 
                             shadow-xl px-8 content-center min-h-80 max-h-96 
                             hover:bg-purple-100 hover:scale-105 transition-all 
                             ease-in-out duration-300 max-[350px]:py-4 max-[350px]:max-h-[500px]">
-                    <p v-if="position.availability" class="text-xl">
+                    <p class="text-xl">
                         <span class="bg-green-300 rounded-2xl px-4">Available</span>
-                    </p>
-                    <p v-else class="text-xl">
-                        <span class="bg-red-300 rounded-2xl px-4">Not Available</span>
                     </p>
                     <p class="text-3xl mt-3">{{ position.name }}</p>
                     <p class="text-lg">{{ position.description }}</p>
                     <p class="text-lg mt-4">
                         <span class="bg-violet-300 rounded-2xl px-4 py-1">
                             <button @click="triggerPopup(position.id)">Apply Now</button>
+                        </span>
+                    </p>
+                </div>
+
+                <div v-else
+                            class="bg-slate-100 border-2 border-slate-500 rounded-3xl 
+                            shadow-xl px-8 content-center min-h-80 max-h-96 
+                            max-[350px]:py-4 max-[350px]:max-h-[500px]">
+                    <p  class="text-xl ">
+                        <span class="bg-slate-300 rounded-2xl px-4">Not Available</span>
+                    </p>
+                    <p class="text-3xl mt-3">{{ position.name }}</p>
+                    <p class="text-lg">{{ position.description }}</p>
+                    <p class="text-lg mt-4">
+                        <span class="bg-slate-300 rounded-2xl px-4 py-1">
+                            <button >Apply Now</button>
                         </span>
                     </p>
                 </div>
