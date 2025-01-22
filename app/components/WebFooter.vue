@@ -4,6 +4,7 @@ interface SocialLinks {
     facebook: string
     linkedin: string
     twitter: string
+    instagram: string
 }
 
 interface Service {
@@ -54,7 +55,8 @@ const query = groq`*[_type == "footer"][0] {
   socials {
     facebook,
     linkedin,
-    twitter
+    twitter,
+    instagram
   },
   outsourcingServices[] {
     name,
@@ -122,6 +124,10 @@ const otherServices = computed(() => footerData.value?.otherServices || [])
                             class="w-8 h-8 flex items-center justify-center rounded-full bg-purple-400 transition-colors hover:bg-purple-500">
                             <Icon name="prime:twitter" class="text-white hover:text-gray-200" />
                         </a>
+                        <a :href="footerData?.socials.instagram" target="_blank"
+                            class="w-8 h-8 flex items-center justify-center rounded-full bg-purple-400 transition-colors hover:bg-purple-500">
+                            <Icon name="mdi-instagram" class="text-white hover:text-gray-200" />
+                        </a>
                     </div>
                 </div>
 
@@ -142,7 +148,7 @@ const otherServices = computed(() => footerData.value?.otherServices || [])
                         class="text-xs sm:text-xs md:text-xs text-gray-600 grid grid-cols-1 sm:grid-cols-2 gap-1 sm:gap-x-10">
                         <li v-for="service in otherServices" :key="service.name">
                             <NuxtLink :to="service.link" target="_blank"
-                                 class="hover:text-purple-500 transition-colors">
+                                class="hover:text-purple-500 transition-colors">
                                 {{ service.name }}
                             </NuxtLink>
                         </li>
