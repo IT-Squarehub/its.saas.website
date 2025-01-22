@@ -128,10 +128,10 @@ const otherServices = computed(() => footerData.value?.otherServices || [])
                 <!-- Services -->
                 <div class="text-center sm:text-left">
                     <h4 class="font-semibold text-sm sm:text-base md:text-lg mb-4">Outsourcing Services</h4>
-                    <ul
-                        class="text-xs sm:text-xs md:text-xs text-gray-600 grid grid-cols-2 gap-1 sm:gap-x-10">
+                    <ul class="text-xs sm:text-xs md:text-xs text-gray-600 grid grid-cols-2 gap-1 sm:gap-x-10">
                         <li v-for="service in outsourcingServices" :key="service.name">
-                            <NuxtLink :to="service.link" class="hover:text-purple-500 transition-colors">
+                            <NuxtLink :to="service.link" target="_blank"
+                                class="hover:text-purple-500 transition-colors">
                                 {{ service.name }}
                             </NuxtLink>
                         </li>
@@ -141,7 +141,8 @@ const otherServices = computed(() => footerData.value?.otherServices || [])
                     <ul
                         class="text-xs sm:text-xs md:text-xs text-gray-600 grid grid-cols-1 sm:grid-cols-2 gap-1 sm:gap-x-10">
                         <li v-for="service in otherServices" :key="service.name">
-                            <NuxtLink :to="service.link" class="hover:text-purple-500 transition-colors">
+                            <NuxtLink :to="service.link" target="_blank"
+                                 class="hover:text-purple-500 transition-colors">
                                 {{ service.name }}
                             </NuxtLink>
                         </li>
