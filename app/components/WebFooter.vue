@@ -120,7 +120,7 @@ const otherServices = computed(() => footerData.value?.otherServices || [])
                         </a>
                         <a :href="footerData?.socials.twitter" target="_blank"
                             class="w-8 h-8 flex items-center justify-center rounded-full bg-purple-400 transition-colors hover:bg-purple-500">
-                            <Icon name="mdi-twitter" class="text-white hover:text-gray-200" />
+                            <Icon name="prime:twitter" class="text-white hover:text-gray-200" />
                         </a>
                     </div>
                 </div>
