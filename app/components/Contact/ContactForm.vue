@@ -3,12 +3,42 @@ import { ref } from 'vue'
 import AOS from 'aos'
 import 'aos/dist/aos.css'
 
+interface ContactDetails {
+  form: {
+    heading: string,
+    subtitle: string,
+    image: {
+      asset: {
+        url: string
+      }
+    },
+    reviewer: string,
+    position: string,
+    comment: string,
+  }
+}
+
+const query = groq`*[_type == "contactUs"][0]{
+  form {
+    heading,
+    subtitle,
+    image {
+      asset -> {
+        url
+      }
+    },
+    reviewer,
+    position,
+    comment
+  }
+}`
+
 interface ContactForm {
-  fullName: string
-  workEmail: string
-  company: string
-  phoneNumber: string
-  message: string
+  fullName: string,
+  workEmail: string,
+  company: string,
+  phoneNumber: string,
+  message: string,
 }
 
 const formData = ref<ContactForm>({
@@ -27,11 +57,14 @@ const handleSubmit = () => {
 // Initialize AOS
 onMounted(() => {
   AOS.init({
-    duration: 800, // Animation duration in ms
-    easing: 'ease-in-out', // Easing type
-    once: false // Whether animation should happen only once
+    duration: 800,
+    easing: 'ease-in-out',
+    once: false
   })
 })
+
+// Fetch data from Sanity
+const { data: contactData } = await useSanityQuery<ContactDetails>(query)
 </script>
 
 <template>
@@ -40,8 +73,8 @@ onMounted(() => {
       <!-- Contact Form Section -->
       <div class="space-y-6" data-aos="fade-right">
         <div class="space-y-2">
-          <h2 class="text-5xl font-bold text-gray-900">Get in touch</h2>
-          <p class="text-gray-600">Our friendly team would love to hear from you</p>
+          <h2 class="text-5xl font-bold text-gray-900">{{ contactData?.form.heading }}</h2>
+          <p class="text-gray-600">{{ contactData?.form.subtitle }}</p>
         </div>
 
         <form @submit.prevent="handleSubmit" class="space-y-4">
@@ -87,14 +120,14 @@ onMounted(() => {
       <!-- Testimonial Section -->
       <div class="h-[480px] md:h-[520px]" data-aos="fade-left">
         <div class="relative h-full w-full rounded-2xl overflow-hidden bg-purple-600">
-          <div class="absolute inset-0 bg-gradient-to-br from-purple-600/20 to-purple-800/20 z-10"></div>
-          <img src="/assets/form-img.jpg" alt="Contact center team"
+          <div class="absolute inset-0 bg-gradient-to-br from-purple-800/20 to-purple-900/40 z-10"></div>
+          <img :src="contactData?.form.image.asset.url" alt="Contact center team"
             class="absolute inset-0 w-full h-full object-cover" />
           <div class="absolute bottom-8 left-8 right-8 z-20 text-white">
-            <p class="text-2xl font-semibold mb-2">One of the best services in the industry!</p>
+            <p class="text-2xl font-semibold mb-2">{{ contactData?.form.comment }}</p>
             <div class="flex items-center gap-2">
-              <span class="text-sm">- Klarence Catelan</span>
-              <span class="text-sm text-gray-300">Founder, Moonryde</span>
+              <span class="text-base font-bold">{{ contactData?.form.reviewer }}</span>
+              <span class="text-sm">{{ contactData?.form.position }}</span>
             </div>
           </div>
         </div>

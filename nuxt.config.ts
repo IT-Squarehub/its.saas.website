@@ -33,15 +33,7 @@ export default defineNuxtConfig({
     '@nuxt/icon',
     '@nuxt/image',
     '@nuxtjs/sanity',
-    'nuxt-anchorscroll',
   ],
-  anchorscroll: {
-    hooks: [
-      // Or any valid hook if needed
-      // Default is `page:finish`
-      'page:transition:finish',
-    ],
-  },
   router: {
     options: {
       scrollBehaviorType: 'smooth'
