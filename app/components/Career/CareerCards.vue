@@ -125,7 +125,7 @@ function goToPage(page) {
         </div>
 
         <!-- Pagination Controls -->
-        <div class="flex justify-center items-center space-x-4 mt-8 mb-8">
+        <div class="flex justify-center items-center space-x-4 mt-8 ">
             <button @click="previousPage" :disabled="currentPage === 1"
                 class="px-4 py-2 bg-purple-500 text-white rounded-full disabled:bg-gray-300 disabled:cursor-not-allowed hover:bg-purple-600 transition-colors">
                 <Icon name="weui:arrow-outlined" style="color: #fff" class="flex rotate-180" />
@@ -177,20 +177,18 @@ function goToPage(page) {
 
     <!-- Link Button -->
     <br>
-    <div class=" flex object-center justify-center content-center items-center">
-        <NuxtLink to="https://www.itsquarehub.com/careers" data-aos="zoom-in" class=" inline-block ">
+    <div class=" flex object-center justify-center content-center items-center mt-[-45px] mb-[-20px]">
             <div class=" hover:scale-125 transition-all ease-in-out duration-500 
                     mb-24 mt-24 text-center ">
-
+        <NuxtLink to="https://www.itsquarehub.com/careers" data-aos="zoom-in" class=" inline-block ">    
                 <p class=" text-white ">
                     <span class=" bg-violet-800 hover:bg-violet-500 
                                 transition-all ease-in-out duration-500 p-4 rounded-xl ">
                         Find More Jobs in ITS Hub
                     </span>
                 </p>
-
-            </div>
         </NuxtLink>
+            </div>
     </div>
 
     <hr class=" bg-slate-400 pt-1 mx-56 mb-32 max-[1200px]:mx-32 max-[800px]:mx-16">
