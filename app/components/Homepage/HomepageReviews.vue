@@ -6,6 +6,7 @@ interface Review {
     comment: string
     name: string
     position: string
+    stars: number
 }
 
 interface ReviewsData {
@@ -23,6 +24,7 @@ const query = groq`*[_type == "homepage"][0]{
       name,
       position,
       comment,
+      stars,
     }
   }
 }`
@@ -70,6 +72,11 @@ const safeReviewsData = computed(() => reviewsData.value || {
                     <div class="mt-auto">
                         <p class="font-semibold">{{ safeReviewsData.reviewsSection.reviews[0].name }}</p>
                         <p class="text-gray-500">{{ safeReviewsData.reviewsSection.reviews[0].position }}</p>
+                        <Icon name="material-symbols-light:star-rounded" width="24" height="24" />
+                        <Icon name="material-symbols-light:star-rounded" width="24" height="24" />
+                        <Icon name="material-symbols-light:star-rounded" width="24" height="24" />
+                        <Icon name="material-symbols-light:star-rounded" width="24" height="24" />
+                        <Icon name="material-symbols-light:star-rounded" width="24" height="24" />  
                     </div>
                 </div>
 
@@ -79,6 +86,13 @@ const safeReviewsData = computed(() => reviewsData.value || {
                     <div class="mt-auto">
                         <p class="font-semibold">{{ safeReviewsData.reviewsSection.reviews[1].name }}</p>
                         <p class="text-gray-500">{{ safeReviewsData.reviewsSection.reviews[1].position }}</p>
+                        
+                        <div class=" flex">
+                            <div v-for="n in safeReviewsData.reviewsSection.reviews[1].stars">
+                                <Icon name="material-symbols-light:star-rounded" width="24" height="24" />
+                            </div>
+                        </div>
+
                     </div>
                 </div>
 
