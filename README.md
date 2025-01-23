@@ -1,23 +1,18 @@
-# Nuxt Minimal Starter
-
-Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
-
 ## Setup
+
+Create a .env file with the following contents:
+```bash
+SANITY_PROJECT_ID="your_sanity_project_id"
+SANITY_DATASET="your_sanity_dataset"
+```
 
 Make sure to install dependencies:
 
 ```bash
 # npm
 npm install
-
-# pnpm
-pnpm install
-
-# yarn
-yarn install
-
-# bun
-bun install
+npm install dotenv
+npm install aos --save
 ```
 
 ## Development Server
