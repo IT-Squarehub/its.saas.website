@@ -1,4 +1,8 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
+import dotenv from 'dotenv'
+
+dotenv.config()
+
 export default defineNuxtConfig({
   compatibilityDate: '2024-11-01',
   future: {
@@ -40,8 +44,8 @@ export default defineNuxtConfig({
     }
   },
   sanity: {
-    projectId: "rlss9fc5",
-    dataset: "production",
+    projectId: process.env.SANITY_PROJECT_ID,
+    dataset: process.env.SANITY_DATASET,
   },
   googleFonts: {
     families: {
