@@ -72,11 +72,13 @@ const safeReviewsData = computed(() => reviewsData.value || {
                     <div class="mt-auto">
                         <p class="font-semibold">{{ safeReviewsData.reviewsSection.reviews[0].name }}</p>
                         <p class="text-gray-500">{{ safeReviewsData.reviewsSection.reviews[0].position }}</p>
-                        <Icon name="material-symbols-light:star-rounded" width="24" height="24" />
-                        <Icon name="material-symbols-light:star-rounded" width="24" height="24" />
-                        <Icon name="material-symbols-light:star-rounded" width="24" height="24" />
-                        <Icon name="material-symbols-light:star-rounded" width="24" height="24" />
-                        <Icon name="material-symbols-light:star-rounded" width="24" height="24" />  
+                        
+                        <div class=" flex">
+                            <div v-for="n in safeReviewsData.reviewsSection.reviews[0].stars">
+                                <Icon name="material-symbols-light:star-rounded" class=" w-16 h-16 bg-yellow-500" />
+                            </div>
+                        </div>
+
                     </div>
                 </div>
 
@@ -102,6 +104,13 @@ const safeReviewsData = computed(() => reviewsData.value || {
                     <div class="mt-auto">
                         <p class="font-semibold">{{ safeReviewsData.reviewsSection.reviews[2].name }}</p>
                         <p class="text-gray-500">{{ safeReviewsData.reviewsSection.reviews[2].position }}</p>
+
+                        <div class=" flex">
+                            <div v-for="n in safeReviewsData.reviewsSection.reviews[2].stars">
+                                <Icon name="material-symbols-light:star-rounded" width="24" height="24" />
+                            </div>
+                        </div>
+
                     </div>
                 </div>
 
@@ -111,6 +120,13 @@ const safeReviewsData = computed(() => reviewsData.value || {
                     <div class="mt-auto">
                         <p class="font-semibold">{{ safeReviewsData.reviewsSection.reviews[3].name }}</p>
                         <p class="text-gray-500">{{ safeReviewsData.reviewsSection.reviews[3].position }}</p>
+
+                        <div class=" flex">
+                            <div v-for="n in safeReviewsData.reviewsSection.reviews[3].stars">
+                                <Icon name="material-symbols-light:star-rounded" width="24" height="24" />
+                            </div>
+                        </div>
+
                     </div>
                 </div>
 
@@ -128,6 +144,13 @@ const safeReviewsData = computed(() => reviewsData.value || {
                     <div class="mt-auto">
                         <p class="font-semibold">{{ safeReviewsData.reviewsSection.reviews[4].name }}</p>
                         <p class="text-gray-500">{{ safeReviewsData.reviewsSection.reviews[4].position }}</p>
+
+                        <div class=" flex">
+                            <div v-for="n in safeReviewsData.reviewsSection.reviews[4].stars">
+                                <Icon name="material-symbols-light:star-rounded" width="24" height="24" />
+                            </div>
+                        </div>
+
                     </div>
                 </div>
 
