@@ -75,7 +75,7 @@ const safeReviewsData = computed(() => reviewsData.value || {
                             <p class="font-semibold">{{ safeReviewsData.reviewsSection.reviews[0].name }}</p>
                             <div class=" flex">
                                 <div v-for="n in safeReviewsData.reviewsSection.reviews[0].stars" >
-                                    <Icon name="material-symbols-light:star-rounded" class=" -mx-2 max-md:hidden md:visible md:w-10 md:h-10 bg-yellow-500" />
+                                    <Icon name="material-symbols-light:star-rounded" class=" -mx-1 max-md:hidden md:visible md:w-9 md:h-9 bg-yellow-500" />
                                 </div>
                             </div>
                         </div>
@@ -93,48 +93,72 @@ const safeReviewsData = computed(() => reviewsData.value || {
                 <div class="lg:col-span-1 lg:row-span-1 bg-white p-6 rounded-lg shadow-lg flex flex-col border-2 border-purple-300"
                     data-aos="zoom-in">
                     <p class="text-gray-600 mb-4">{{ safeReviewsData.reviewsSection.reviews[1].comment }}</p>
-                    <div class="mt-auto">
-                        <p class="font-semibold">{{ safeReviewsData.reviewsSection.reviews[1].name }}</p>
-                        <p class="text-gray-500">{{ safeReviewsData.reviewsSection.reviews[1].position }}</p>
-                        
-                        <div class=" flex">
-                            <div v-for="n in safeReviewsData.reviewsSection.reviews[1].stars">
-                                <Icon name="material-symbols-light:star-rounded" class=" w-7 h-7 md:w-14 md:h-14 bg-yellow-500" />
+                    <div class="mt-auto ">
+
+                        <div class=" md:-mb-2 flex justify-between text-center items-center">
+                            <p class="font-semibold">{{ safeReviewsData.reviewsSection.reviews[1].name }}</p>
+                            <div class=" flex">
+                                <div v-for="n in safeReviewsData.reviewsSection.reviews[1].stars" >
+                                    <Icon name="material-symbols-light:star-rounded" class=" -mx-1 max-md:hidden md:visible md:w-9 md:h-9 bg-yellow-500" />
+                                </div>
                             </div>
                         </div>
+                
+                        <p class="text-gray-500">{{ safeReviewsData.reviewsSection.reviews[1].position }}</p>
 
+                        <div class=" flex">
+                                <div v-for="n in safeReviewsData.reviewsSection.reviews[1].stars" >
+                                    <Icon name="material-symbols-light:star-rounded" class=" md:hidden w-7 h-7 bg-yellow-500" />
+                                </div>
+                        </div>
                     </div>
                 </div>
 
                 <div class="lg:col-span-1 lg:row-span-1 bg-white p-6 rounded-lg shadow-lg flex flex-col border-2 border-purple-300"
                     data-aos="zoom-in">
                     <p class="text-gray-600 mb-4">{{ safeReviewsData.reviewsSection.reviews[2].comment }}</p>
-                    <div class="mt-auto">
-                        <p class="font-semibold">{{ safeReviewsData.reviewsSection.reviews[2].name }}</p>
+                    <div class="mt-auto ">
+
+                        <div class=" md:-mb-2 flex justify-between text-center items-center">
+                            <p class="font-semibold">{{ safeReviewsData.reviewsSection.reviews[2].name }}</p>
+                            <div class=" flex">
+                                <div v-for="n in safeReviewsData.reviewsSection.reviews[2].stars" >
+                                    <Icon name="material-symbols-light:star-rounded" class=" -mx-1 max-md:hidden md:visible md:w-9 md:h-9 bg-yellow-500" />
+                                </div>
+                            </div>
+                        </div>
+                
                         <p class="text-gray-500">{{ safeReviewsData.reviewsSection.reviews[2].position }}</p>
 
                         <div class=" flex">
-                            <div v-for="n in safeReviewsData.reviewsSection.reviews[2].stars">
-                                <Icon name="material-symbols-light:star-rounded" class=" w-7 h-7 md:w-14 md:h-14 bg-yellow-500" />
-                            </div>
+                                <div v-for="n in safeReviewsData.reviewsSection.reviews[2].stars" >
+                                    <Icon name="material-symbols-light:star-rounded" class=" md:hidden w-7 h-7 bg-yellow-500" />
+                                </div>
                         </div>
-
                     </div>
                 </div>
 
                 <div class="lg:col-span-1 lg:row-span-3 bg-white p-6 rounded-lg shadow-lg flex flex-col border-2 border-purple-300"
                     data-aos="zoom-in">
-                    <p class="text-gray-600 mb-4">{{ safeReviewsData.reviewsSection.reviews[3].comment }}</p>
-                    <div class="mt-auto">
-                        <p class="font-semibold">{{ safeReviewsData.reviewsSection.reviews[3].name }}</p>
+                    <p class="text-gray-600 mb-4">{{ safeReviewsData.reviewsSection.reviews[0].comment }}</p>
+                    <div class="mt-auto ">
+
+                        <div class=" md:-mb-2 flex justify-between text-center items-center">
+                            <p class="font-semibold">{{ safeReviewsData.reviewsSection.reviews[3].name }}</p>
+                            <div class=" flex">
+                                <div v-for="n in safeReviewsData.reviewsSection.reviews[3].stars" >
+                                    <Icon name="material-symbols-light:star-rounded" class=" -mx-1 max-md:hidden md:visible md:w-9 md:h-9 bg-yellow-500" />
+                                </div>
+                            </div>
+                        </div>
+                
                         <p class="text-gray-500">{{ safeReviewsData.reviewsSection.reviews[3].position }}</p>
 
                         <div class=" flex">
-                            <div v-for="n in safeReviewsData.reviewsSection.reviews[3].stars">
-                                <Icon name="material-symbols-light:star-rounded" class=" w-7 h-7 md:w-14 md:h-14 bg-yellow-500" />
-                            </div>
+                                <div v-for="n in safeReviewsData.reviewsSection.reviews[3].stars" >
+                                    <Icon name="material-symbols-light:star-rounded" class=" md:hidden w-7 h-7 bg-yellow-500" />
+                                </div>
                         </div>
-
                     </div>
                 </div>
 
@@ -149,16 +173,24 @@ const safeReviewsData = computed(() => reviewsData.value || {
                 <div class="lg:col-span-1 lg:row-span-2 bg-white p-6 rounded-lg shadow-lg border-2 border-purple-300"
                     data-aos="zoom-in">
                     <p class="text-gray-600 mb-4">{{ safeReviewsData.reviewsSection.reviews[4].comment }}</p>
-                    <div class="mt-auto">
-                        <p class="font-semibold">{{ safeReviewsData.reviewsSection.reviews[4].name }}</p>
+                    <div class="mt-auto ">
+
+                        <div class=" md:-mb-2 flex justify-between text-center items-center">
+                            <p class="font-semibold">{{ safeReviewsData.reviewsSection.reviews[4].name }}</p>
+                            <div class=" flex">
+                                <div v-for="n in safeReviewsData.reviewsSection.reviews[4].stars" >
+                                    <Icon name="material-symbols-light:star-rounded" class=" -mx-1 max-md:hidden md:visible md:w-9 md:h-9 bg-yellow-500" />
+                                </div>
+                            </div>
+                        </div>
+                
                         <p class="text-gray-500">{{ safeReviewsData.reviewsSection.reviews[4].position }}</p>
 
                         <div class=" flex">
-                            <div v-for="n in safeReviewsData.reviewsSection.reviews[4].stars">
-                                <Icon name="material-symbols-light:star-rounded" class=" w-7 h-7 md:w-14 md:h-14 bg-yellow-500" />
-                            </div>
+                                <div v-for="n in safeReviewsData.reviewsSection.reviews[4].stars" >
+                                    <Icon name="material-symbols-light:star-rounded" class=" md:hidden w-7 h-7 bg-yellow-500" />
+                                </div>
                         </div>
-
                     </div>
                 </div>
 
