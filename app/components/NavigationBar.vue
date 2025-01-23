@@ -137,6 +137,14 @@
             </div>
           </div>
           <div class="relative">
+            <NuxtLink to="/pricing" class="px-4 py-2 text-gray-800 hover:text-purple-600 transition-colors">
+              Pricing
+              <div v-if="$route.path === '/pricing'"
+                class="absolute bottom-0 -mb-3 left-0 w-full h-1 bg-purple-600 rounded-t-sm">
+              </div>
+            </NuxtLink>
+          </div>
+          <div class="relative">
             <NuxtLink to="/career" class="px-4 py-2 text-gray-800 hover:text-purple-600 transition-colors">
               Careers
               <div v-if="$route.path === '/career'"
