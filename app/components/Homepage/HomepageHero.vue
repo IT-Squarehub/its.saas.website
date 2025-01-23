@@ -76,7 +76,7 @@ onMounted(() => {
       <div class="w-full md:w-1/2" data-aos="fade-left">
 
         <img class="w-full h-auto max-h-[40rem] object-contain"
-          :src="heroData?.hero?.image ? urlFor(heroData.hero.image).width(1200).url() : '/assets/hero2.png'"
+          :src="heroData?.hero?.image ? heroData.hero.image.asset.url : '/assets/hero2.png'"
           :alt="heroData?.hero?.image?.alt || 'Hero image'">
       </div>
     </div>
