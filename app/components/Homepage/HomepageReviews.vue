@@ -75,7 +75,7 @@ const safeReviewsData = computed(() => reviewsData.value || {
                             <p class="font-semibold">{{ safeReviewsData.reviewsSection.reviews[0].name }}</p>
                             <div class=" flex">
                                 <div v-for="n in safeReviewsData.reviewsSection.reviews[0].stars" >
-                                    <Icon name="material-symbols-light:star-rounded" class=" -mx-1 max-md:hidden md:visible md:w-9 md:h-9 bg-yellow-500" />
+                                    <Icon name="material-symbols-light:star-rounded" class=" -mx-2 min-[1100px]:-mx-1 max-md:hidden md:visible md:w-9 md:h-9 bg-yellow-500" />
                                 </div>
                             </div>
                         </div>
@@ -99,7 +99,7 @@ const safeReviewsData = computed(() => reviewsData.value || {
                             <p class="font-semibold">{{ safeReviewsData.reviewsSection.reviews[1].name }}</p>
                             <div class=" flex">
                                 <div v-for="n in safeReviewsData.reviewsSection.reviews[1].stars" >
-                                    <Icon name="material-symbols-light:star-rounded" class=" -mx-1 max-md:hidden md:visible md:w-9 md:h-9 bg-yellow-500" />
+                                    <Icon name="material-symbols-light:star-rounded" class=" -mx-2 min-[1100px]:-mx-1 max-md:hidden md:visible md:w-9 md:h-9 bg-yellow-500" />
                                 </div>
                             </div>
                         </div>
@@ -123,7 +123,7 @@ const safeReviewsData = computed(() => reviewsData.value || {
                             <p class="font-semibold">{{ safeReviewsData.reviewsSection.reviews[2].name }}</p>
                             <div class=" flex">
                                 <div v-for="n in safeReviewsData.reviewsSection.reviews[2].stars" >
-                                    <Icon name="material-symbols-light:star-rounded" class=" -mx-1 max-md:hidden md:visible md:w-9 md:h-9 bg-yellow-500" />
+                                    <Icon name="material-symbols-light:star-rounded" class=" -mx-2 min-[1100px]:-mx-1 max-md:hidden md:visible md:w-9 md:h-9 bg-yellow-500" />
                                 </div>
                             </div>
                         </div>
@@ -147,7 +147,7 @@ const safeReviewsData = computed(() => reviewsData.value || {
                             <p class="font-semibold">{{ safeReviewsData.reviewsSection.reviews[3].name }}</p>
                             <div class=" flex">
                                 <div v-for="n in safeReviewsData.reviewsSection.reviews[3].stars" >
-                                    <Icon name="material-symbols-light:star-rounded" class=" -mx-1 max-md:hidden md:visible md:w-9 md:h-9 bg-yellow-500" />
+                                    <Icon name="material-symbols-light:star-rounded" class=" -mx-2 min-[1100px]:-mx-1 max-md:hidden md:visible md:w-9 md:h-9 bg-yellow-500" />
                                 </div>
                             </div>
                         </div>
@@ -179,7 +179,7 @@ const safeReviewsData = computed(() => reviewsData.value || {
                             <p class="font-semibold">{{ safeReviewsData.reviewsSection.reviews[4].name }}</p>
                             <div class=" flex">
                                 <div v-for="n in safeReviewsData.reviewsSection.reviews[4].stars" >
-                                    <Icon name="material-symbols-light:star-rounded" class=" -mx-1 max-md:hidden md:visible md:w-9 md:h-9 bg-yellow-500" />
+                                    <Icon name="material-symbols-light:star-rounded" class=" -mx-2 min-[1100px]:-mx-1 max-md:hidden md:visible md:w-9 md:h-9 bg-yellow-500" />
                                 </div>
                             </div>
                         </div>
