@@ -75,7 +75,7 @@ const safeReviewsData = computed(() => reviewsData.value || {
                         
                         <div class=" flex">
                             <div v-for="n in safeReviewsData.reviewsSection.reviews[0].stars">
-                                <Icon name="material-symbols-light:star-rounded" class=" w-16 h-16 bg-yellow-500" />
+                                <Icon name="material-symbols-light:star-rounded" class=" w-7 h-7 md:w-14 md:h-14 bg-yellow-500" />
                             </div>
                         </div>
 
@@ -91,7 +91,7 @@ const safeReviewsData = computed(() => reviewsData.value || {
                         
                         <div class=" flex">
                             <div v-for="n in safeReviewsData.reviewsSection.reviews[1].stars">
-                                <Icon name="material-symbols-light:star-rounded" width="24" height="24" />
+                                <Icon name="material-symbols-light:star-rounded" class=" w-7 h-7 md:w-14 md:h-14 bg-yellow-500" />
                             </div>
                         </div>
 
@@ -107,7 +107,7 @@ const safeReviewsData = computed(() => reviewsData.value || {
 
                         <div class=" flex">
                             <div v-for="n in safeReviewsData.reviewsSection.reviews[2].stars">
-                                <Icon name="material-symbols-light:star-rounded" width="24" height="24" />
+                                <Icon name="material-symbols-light:star-rounded" class=" w-7 h-7 md:w-14 md:h-14 bg-yellow-500" />
                             </div>
                         </div>
 
@@ -123,7 +123,7 @@ const safeReviewsData = computed(() => reviewsData.value || {
 
                         <div class=" flex">
                             <div v-for="n in safeReviewsData.reviewsSection.reviews[3].stars">
-                                <Icon name="material-symbols-light:star-rounded" width="24" height="24" />
+                                <Icon name="material-symbols-light:star-rounded" class=" w-7 h-7 md:w-14 md:h-14 bg-yellow-500" />
                             </div>
                         </div>
 
@@ -147,7 +147,7 @@ const safeReviewsData = computed(() => reviewsData.value || {
 
                         <div class=" flex">
                             <div v-for="n in safeReviewsData.reviewsSection.reviews[4].stars">
-                                <Icon name="material-symbols-light:star-rounded" width="24" height="24" />
+                                <Icon name="material-symbols-light:star-rounded" class=" w-7 h-7 md:w-14 md:h-14 bg-yellow-500" />
                             </div>
                         </div>
 
