@@ -56,13 +56,13 @@ onMounted(() => {
     <div v-else class="flex flex-col md:flex-row items-center justify-between w-full max-w-7xl gap-0 md:gap-10">
 
       <!-- Title and Button Container -->
-      <div
+      <div v-if="heroData?.hero?.heading"
         class="w-full md:w-1/2 flex flex-col items-center md:items-start justify-center space-y-6 py-8 md:gap-2 lg:gap-5"
         data-aos="fade-right">
 
         <h1
           class="text-3xl sm:text-4xl lg:text-5xl xl:text-[4rem] font-Poppins font-bold leading-tight bg-gradient-to-t from-slate-800 to-purple-500 bg-clip-text text-transparent text-center md:text-left max-w-3xl">
-          {{ heroData?.hero?.heading || 'Hero Title' }}
+          {{ heroData.hero.heading }}
         </h1>
 
         <NuxtLink :to="{ path: '/contact', hash: '#form' }"
@@ -73,11 +73,10 @@ onMounted(() => {
       </div>
 
       <!-- Image Container -->
-      <div class="w-full md:w-1/2" data-aos="fade-left">
+      <div v-if="heroData?.hero?.image?.asset?.url" class="w-full md:w-1/2" data-aos="fade-left">
 
-        <img class="w-full h-auto max-h-[40rem] object-contain"
-          :src="heroData?.hero?.image ? heroData.hero.image.asset.url : '/assets/hero2.png'"
-          :alt="heroData?.hero?.image?.alt || 'Hero image'">
+        <img class="w-full h-auto max-h-[40rem] object-contain" :src="heroData.hero.image.asset.url"
+          :alt="heroData.hero.image.alt || 'Hero image'">
       </div>
     </div>
   </div>

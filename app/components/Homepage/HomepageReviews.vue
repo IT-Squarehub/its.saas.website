@@ -10,10 +10,11 @@ interface Review {
 }
 
 interface ReviewsData {
-    heading: string
-    subtitle: string
-    reviews: Review[]
-
+    reviewsSection: {
+        heading: string
+        subtitle: string
+        reviews: Review[]
+    }
 }
 
 const query = groq`*[_type == "homepage"][0]{
@@ -42,13 +43,16 @@ onMounted(() => {
 
 // Coomputed property to safely handle the data
 const safeReviewsData = computed(() => reviewsData.value || {
-    heading: '',
-    subtitle: '',
-    reviews: Array(5).fill({
-        comment: '',
-        name: '',
-        position: ''
-    })
+    reviewsSection: {
+        heading: '',
+        subtitle: '',
+        reviews: Array(5).fill({
+            comment: '',
+            name: '',
+            position: '',
+            stars: 0
+        })
+    }
 })
 </script>
 
@@ -57,7 +61,7 @@ const safeReviewsData = computed(() => reviewsData.value || {
     <div class="py-16 font-InstrumentSans">
         <div class="mx-auto px-12 lg:px-32">
             <h2 class="text-4xl font-semibold mb-12 text-center" data-aos="fade-up">{{
-                safeReviewsData.reviewsSection.heading }}</h2>
+                safeReviewsData?.reviewsSection.heading }}</h2>
 
             <div data-aos="fade-down">
                 <img class="z-50 absolute -rotate-[10deg] -translate-x-16 translate-y-40 hidden xl:block lg:w-24 md:w-28"
@@ -74,18 +78,20 @@ const safeReviewsData = computed(() => reviewsData.value || {
                         <div class=" md:-mb-2 flex justify-between text-center items-center">
                             <p class="font-semibold">{{ safeReviewsData.reviewsSection.reviews[0].name }}</p>
                             <div class=" flex">
-                                <div v-for="n in safeReviewsData.reviewsSection.reviews[0].stars" >
-                                    <Icon name="material-symbols-light:star-rounded" class=" -mx-2 min-[1100px]:-mx-1 max-md:hidden md:visible md:w-9 md:h-9 bg-yellow-500" />
+                                <div v-for="n in safeReviewsData.reviewsSection.reviews[0].stars">
+                                    <Icon name="material-symbols-light:star-rounded"
+                                        class=" -mx-2 min-[1100px]:-mx-1 max-md:hidden md:visible md:w-9 md:h-9 bg-yellow-500" />
                                 </div>
                             </div>
                         </div>
-                
+
                         <p class="text-gray-500">{{ safeReviewsData.reviewsSection.reviews[0].position }}</p>
 
                         <div class=" flex">
-                                <div v-for="n in safeReviewsData.reviewsSection.reviews[0].stars" >
-                                    <Icon name="material-symbols-light:star-rounded" class=" md:hidden w-7 h-7 bg-yellow-500" />
-                                </div>
+                            <div v-for="n in safeReviewsData.reviewsSection.reviews[0].stars">
+                                <Icon name="material-symbols-light:star-rounded"
+                                    class=" md:hidden w-7 h-7 bg-yellow-500" />
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -98,18 +104,20 @@ const safeReviewsData = computed(() => reviewsData.value || {
                         <div class=" md:-mb-2 flex justify-between text-center items-center">
                             <p class="font-semibold">{{ safeReviewsData.reviewsSection.reviews[1].name }}</p>
                             <div class=" flex">
-                                <div v-for="n in safeReviewsData.reviewsSection.reviews[1].stars" >
-                                    <Icon name="material-symbols-light:star-rounded" class=" -mx-2 min-[1100px]:-mx-1 max-md:hidden md:visible md:w-9 md:h-9 bg-yellow-500" />
+                                <div v-for="n in safeReviewsData.reviewsSection.reviews[1].stars">
+                                    <Icon name="material-symbols-light:star-rounded"
+                                        class=" -mx-2 min-[1100px]:-mx-1 max-md:hidden md:visible md:w-9 md:h-9 bg-yellow-500" />
                                 </div>
                             </div>
                         </div>
-                
+
                         <p class="text-gray-500">{{ safeReviewsData.reviewsSection.reviews[1].position }}</p>
 
                         <div class=" flex">
-                                <div v-for="n in safeReviewsData.reviewsSection.reviews[1].stars" >
-                                    <Icon name="material-symbols-light:star-rounded" class=" md:hidden w-7 h-7 bg-yellow-500" />
-                                </div>
+                            <div v-for="n in safeReviewsData.reviewsSection.reviews[1].stars">
+                                <Icon name="material-symbols-light:star-rounded"
+                                    class=" md:hidden w-7 h-7 bg-yellow-500" />
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -122,18 +130,20 @@ const safeReviewsData = computed(() => reviewsData.value || {
                         <div class=" md:-mb-2 flex justify-between text-center items-center">
                             <p class="font-semibold">{{ safeReviewsData.reviewsSection.reviews[2].name }}</p>
                             <div class=" flex">
-                                <div v-for="n in safeReviewsData.reviewsSection.reviews[2].stars" >
-                                    <Icon name="material-symbols-light:star-rounded" class=" -mx-2 min-[1100px]:-mx-1 max-md:hidden md:visible md:w-9 md:h-9 bg-yellow-500" />
+                                <div v-for="n in safeReviewsData.reviewsSection.reviews[2].stars">
+                                    <Icon name="material-symbols-light:star-rounded"
+                                        class=" -mx-2 min-[1100px]:-mx-1 max-md:hidden md:visible md:w-9 md:h-9 bg-yellow-500" />
                                 </div>
                             </div>
                         </div>
-                
+
                         <p class="text-gray-500">{{ safeReviewsData.reviewsSection.reviews[2].position }}</p>
 
                         <div class=" flex">
-                                <div v-for="n in safeReviewsData.reviewsSection.reviews[2].stars" >
-                                    <Icon name="material-symbols-light:star-rounded" class=" md:hidden w-7 h-7 bg-yellow-500" />
-                                </div>
+                            <div v-for="n in safeReviewsData.reviewsSection.reviews[2].stars">
+                                <Icon name="material-symbols-light:star-rounded"
+                                    class=" md:hidden w-7 h-7 bg-yellow-500" />
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -146,18 +156,20 @@ const safeReviewsData = computed(() => reviewsData.value || {
                         <div class=" md:-mb-2 flex justify-between text-center items-center">
                             <p class="font-semibold">{{ safeReviewsData.reviewsSection.reviews[3].name }}</p>
                             <div class=" flex">
-                                <div v-for="n in safeReviewsData.reviewsSection.reviews[3].stars" >
-                                    <Icon name="material-symbols-light:star-rounded" class=" -mx-2 min-[1100px]:-mx-1 max-md:hidden md:visible md:w-9 md:h-9 bg-yellow-500" />
+                                <div v-for="n in safeReviewsData.reviewsSection.reviews[3].stars">
+                                    <Icon name="material-symbols-light:star-rounded"
+                                        class=" -mx-2 min-[1100px]:-mx-1 max-md:hidden md:visible md:w-9 md:h-9 bg-yellow-500" />
                                 </div>
                             </div>
                         </div>
-                
+
                         <p class="text-gray-500">{{ safeReviewsData.reviewsSection.reviews[3].position }}</p>
 
                         <div class=" flex">
-                                <div v-for="n in safeReviewsData.reviewsSection.reviews[3].stars" >
-                                    <Icon name="material-symbols-light:star-rounded" class=" md:hidden w-7 h-7 bg-yellow-500" />
-                                </div>
+                            <div v-for="n in safeReviewsData.reviewsSection.reviews[3].stars">
+                                <Icon name="material-symbols-light:star-rounded"
+                                    class=" md:hidden w-7 h-7 bg-yellow-500" />
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -178,18 +190,20 @@ const safeReviewsData = computed(() => reviewsData.value || {
                         <div class=" md:-mb-2 flex justify-between text-center items-center">
                             <p class="font-semibold">{{ safeReviewsData.reviewsSection.reviews[4].name }}</p>
                             <div class=" flex">
-                                <div v-for="n in safeReviewsData.reviewsSection.reviews[4].stars" >
-                                    <Icon name="material-symbols-light:star-rounded" class=" -mx-2 min-[1100px]:-mx-1 max-md:hidden md:visible md:w-9 md:h-9 bg-yellow-500" />
+                                <div v-for="n in safeReviewsData.reviewsSection.reviews[4].stars">
+                                    <Icon name="material-symbols-light:star-rounded"
+                                        class=" -mx-2 min-[1100px]:-mx-1 max-md:hidden md:visible md:w-9 md:h-9 bg-yellow-500" />
                                 </div>
                             </div>
                         </div>
-                
+
                         <p class="text-gray-500">{{ safeReviewsData.reviewsSection.reviews[4].position }}</p>
 
                         <div class=" flex">
-                                <div v-for="n in safeReviewsData.reviewsSection.reviews[4].stars" >
-                                    <Icon name="material-symbols-light:star-rounded" class=" md:hidden w-7 h-7 bg-yellow-500" />
-                                </div>
+                            <div v-for="n in safeReviewsData.reviewsSection.reviews[4].stars">
+                                <Icon name="material-symbols-light:star-rounded"
+                                    class=" md:hidden w-7 h-7 bg-yellow-500" />
+                            </div>
                         </div>
                     </div>
                 </div>
