@@ -86,7 +86,7 @@
             <p class="leading-4">Human Resources<br><span class="font-bold">Information System</span></p>
           </NuxtLink>
         </div>
-        <button @click="toggleMenu" class="md:hidden">
+        <button @click="toggleMenu" class="lg:hidden">
           <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path v-if="!isMenuOpen" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
               d="M4 6h16M4 12h16M4 18h16" />
@@ -94,7 +94,7 @@
               d="M6 18L18 6M6 6l12 12" />
           </svg>
         </button>
-        <div class="hidden md:flex items-center space-x-8">
+        <div class="hidden lg:flex items-center space-x-8">
           <div class="relative">
             <NuxtLink to="/" class="px-4 py-2 text-gray-800 hover:text-purple-600 transition-colors">
               Home
@@ -163,7 +163,7 @@
         </div>
       </div>
       <Transition name="drop-fade">
-        <div v-if="isMenuOpen" class="md:hidden">
+        <div v-if="isMenuOpen" class="lg:hidden">
           <div class="flex flex-col space-y-4 px-4 py-5">
             <NuxtLink class="text-gray-800 hover:text-purple-600 py-2" to="/" @click="isMenuOpen = false">
               Home
