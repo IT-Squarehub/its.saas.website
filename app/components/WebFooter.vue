@@ -131,19 +131,6 @@ const otherServices = computed(() => footerData.value?.otherServices || [])
                     </div>
                 </div>
 
-                <!-- Services -->
-                <div class="text-center sm:text-left">
-                    <h4 class="font-semibold text-sm sm:text-base md:text-lg mb-4">Product Offerings</h4>
-                    <ul class="text-xs sm:text-xs md:text-xs text-gray-600 grid grid-cols-2 gap-1 sm:gap-x-10">
-                        <li v-for="service in outsourcingServices" :key="service.name">
-                            <NuxtLink :to="service.link" target="_blank"
-                                class="hover:text-purple-500 transition-colors">
-                                {{ service.name }}
-                            </NuxtLink>
-                        </li>
-                    </ul>
-                </div>
-
                 <!-- Contact Details -->
                 <div class="text-center sm:text-left">
                     <h4 class="font-semibold text-sm sm:text-base md:text-lg mb-4">Locations</h4>
@@ -168,9 +155,23 @@ const otherServices = computed(() => footerData.value?.otherServices || [])
                             </div>
                         </li>
                     </ul>
+                </div>
+
+                <!-- Services -->
+                <div class="text-center sm:text-left">
+                    <h4 class="font-semibold text-sm sm:text-base md:text-lg mb-4">Product Offerings</h4>
+                    <ul class="text-xs sm:text-xs md:text-xs text-gray-600 grid grid-cols-2 gap-1 sm:gap-x-10">
+                        <li v-for="service in outsourcingServices" :key="service.name">
+                            <NuxtLink :to="service.link" target="_blank"
+                                class="hover:text-purple-500 transition-colors">
+                                {{ service.name }}
+                            </NuxtLink>
+                        </li>
+                    </ul>
 
                     <!-- Certificate Logos -->
-                    <div class="mt-6 grid grid-cols-6 sm:grid-cols-4 lg:grid-cols-6 gap-6 justify-center">
+                    <h4 class="font-semibold text-sm sm:text-base md:text-lg mt-12">Certified Professionals</h4>
+                    <div class="mt-5 grid grid-cols-6 sm:grid-cols-4 lg:grid-cols-6 gap-6 justify-center">
                         <nuxt-img v-for="logo in certificateLogos" :key="logo.asset.url" class="mb-4 mx-auto"
                             :src="logo.asset.url" :alt="logo.alt" width="280" height="280" />
                     </div>
