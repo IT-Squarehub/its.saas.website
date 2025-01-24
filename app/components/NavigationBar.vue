@@ -118,12 +118,12 @@
             </div>
             <div 
               v-if="isFeaturesOpen" 
-              class="absolute bg-white shadow-lg rounded-lg mt-5 w-64 right-0 border border-gray-100 
+              class="absolute bg-white shadow-lg rounded-lg mt-5 w-[20.3rem] right-0 border border-gray-100 
                   transform origin-top-right transition-all duration-300 ease-out 
                   opacity-100 scale-100"
               @click.stop
             >
-              <div class="py-2">
+              <div class="py-2 px-2">
                 <NuxtLink 
                   v-for="(saas, index) in saasProducts" 
                   :key="index" 
@@ -180,7 +180,7 @@
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
                 </svg>
               </div>
-              <div v-if="isMobileFeaturesOpen" class="pl-4 mt-2 space-y-2">
+              <div v-if="isMobileFeaturesOpen" class="pl-4 mt-2 space-y-5">
                 <NuxtLink 
                   v-for="(saas, index) in saasProducts" 
                   :key="index" 
