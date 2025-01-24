@@ -19,17 +19,23 @@ const { data: careerData, pending, error } = await useSanityQuery(query)
 <template>
 
     <div class=" mb-32 ">
-      <p  data-aos="fade-left" 
+      <p  
+      v-if="careerData.review.comment != null"
+      data-aos="fade-left" 
       class=" text-6xl text-center font-bold px-64 max-[550px]:text-2xl max-[550px]:px-16 max-[1200px]:px-16 max-[1200px]:text-4xl">
         {{ careerData.review.comment }}
       </p>
 
-      <p  data-aos="fade-right" data-aos-delay="200"
+      <p  
+      v-if="careerData.review.reviewerName != null"
+      data-aos="fade-right" data-aos-delay="200"
       class=" text-3xl text-center font-semibold px-64 mt-16 max-[550px]:text-lg max-[550px]:px-16 max-lg:px-16">
         {{ careerData.review.reviewerName }}
       </p>
 
-      <p  data-aos="fade-right" data-aos-delay="200"
+      <p  
+      v-if="careerData.review.reviewerPosition != null"
+      data-aos="fade-right" data-aos-delay="200"
       class=" text-xl text-center font-regular px-64 max-[550px]:text-base max-[550px]:px-16 max-lg:px-16">
         {{ careerData.review.reviewerPosition }}
       </p>
