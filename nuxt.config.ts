@@ -34,6 +34,11 @@ export default defineNuxtConfig({
     '@nuxt/image',
     '@nuxtjs/sanity',
   ],
+  router: {
+    options: {
+      scrollBehaviorType: 'smooth'
+    }
+  },
   sanity: {
     projectId: "rlss9fc5",
     dataset: "production",

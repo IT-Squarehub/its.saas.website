@@ -91,12 +91,11 @@ onMounted(() => {
             </p>
 
             <!-- Main Content -->
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="grid grid-col-1 md:flex md:flex-col gap-8">
                 <!-- Feature Tiles -->
-                <div class="space-y-4" ref="cardsContainer">
+                <div class="md:flex col-span-1 md:flex-row gap-4" ref="cardsContainer" data-aos="fade-right">
                     <button v-for="feature in features" :key="feature.id" @click="selectedFeature = feature.id"
-                        data-aos="fade-right"
-                        class="w-full text-center md:text-left p-6 rounded-lg transition-all duration-200 border-2 border-purple-300"
+                        class="w-full text-center md:text-left p-6 rounded-lg transition-all duration-200 border-2 border-purple-300 mb-4 md:mb-0"
                         :class="[
                             selectedFeature === feature.id
                                 ? 'bg-purple-600 text-white hover:scale-105'
@@ -114,8 +113,8 @@ onMounted(() => {
                 </div>
 
                 <!-- Feature Image -->
-                <div class="h-full" data-aos="fade-left">
-                    <div class="overflow-hidden h-full shadow-xl rounded-lg">
+                <div class="flex h-full w-full" data-aos="fade-left">
+                    <div class="overflow-hidden h-full w-full shadow-xl rounded-lg">
                         <NuxtImg :src="selectedFeatureData?.image.asset.url" :alt="selectedFeatureData?.title"
                             class="w-full h-full object-cover" loading="lazy" />
                     </div>

@@ -23,8 +23,8 @@ onMounted(() => {
                 competition with
                 cutting-edge
                 development, seamless integration, and collaborative tools from ITS SquareHub.</p>
-            <button class="bg-white text-black font-semibold px-4 py-2 rounded mt-4" data-aos="fade-up">Get
-                Started</button>
+            <NuxtLink :to="{ path: '/contact', hash: '#form'}" class="bg-white text-black font-semibold px-4 py-2 rounded mt-4" data-aos="fade-up">Get
+                Started</NuxtLink>
         </div>
         <img src="/assets/shapes.png" alt="Hero Image" data-aos="fade-left"
             class="sm:block sm:w-[13rem] lg:w-80 xl:w-auto w-40 hidden absolute bottom-0 right-0 object-cover rotate-180" />

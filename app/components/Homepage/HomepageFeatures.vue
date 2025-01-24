@@ -65,7 +65,7 @@ const { data: featuresData } = await useSanityQuery<FeaturesSection>(query)
                         </div>
                         <span class="text-purple-600 font-semibold">Features</span>
                     </div>
-                    <h1 class="text-5xl font-bold mb-6 text-gray-900 text-center md:text-left">
+                    <h1 v-if="featuresData.featuresSection.heading != null" class="text-5xl font-bold mb-6 text-gray-900 text-center md:text-left">
                         {{ featuresData.featuresSection.heading }}
                     </h1>
                     <p class="text-xl text-gray-600 text-center md:text-left">

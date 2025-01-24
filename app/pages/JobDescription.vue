@@ -3,20 +3,26 @@
 </script>
 
 <template>
-    <div class=" flex gap-8 pt-44 bg-violet-300">
+
+    <div class=" flex max-[1050px]:flex-col max-[1050px]:items-center gap-8 pt-44 bg-violet-300">
+    <!-- Close -->
+    <NuxtLink :to="{ path: '/Career', }">
+        <CareerCloseIcon class="absolute top-32 right-8 "/>
+    </NuxtLink>
         
-        <!-- IMG -->
-        <div class=" w-1/2">
-            
+        <!-- IMG PLACEHOLDER UNTIL SCHEMA AND CODE IS FIXED  -->
+         <!-- Add a slug in the schema and a _slug.vue in pages -->
+        <div class=" w-1/2 p-16 max-[1050px]:p-0 flex justify-center">
+            <img src="/assets/Left-photo.png" alt="">
         </div>
 
         <!-- Qualifications -->
-        <div class=" w-1/2 pr-32">
+        <div class=" w-1/2 pr-32 max-[1050px]:pr-0 max-[1050px]:w-2/3">
             <p class=" text-4xl font-bold mb-5">
                 Qualifications:
             </p>
 
-            <ul class=" mb-5 list-disc">
+            <ul class=" mb-5 pl-8 list-disc">
                 <li> 
                     Bachelor's degree in computer science, information technology, or a relative field.
                 </li>
@@ -52,10 +58,15 @@
                 Notes:
             </p>
 
-            <p class=" mb-5">
-                Remote / Hybrid Work Set-up <br>
-                Salary will be based on your skill set <br>
-            </p>
+
+            <ul class=" mb-5 pl-8 list-disc">
+                <li>
+                    Remote / Hybrid Work Set-up.
+                </li>
+                <li>
+                    Salary will be based on your skill set.
+                </li>
+            </ul>
 
             <hr class=" bg-slate-400 pt-1 mr-8">
 
@@ -63,14 +74,14 @@
             <div class=" flex my-8 gap-8">
                 
                 <!-- QR image -->
-                <div class=" h-32 w-32">
-                    <img src="" alt="">
+                <div class=" h-96 w-96 pl-16 max-[1050px]:pl-0">
+                    <img src="/assets/qr-code.png" alt="QR code to apply">
                 </div>
 
                 <div>
-                    <p class=" text-4xl font-extrabold"> 
+                    <p class=" text-4xl pb-6 font-extrabold pr-32 max-[1050px]:pr-0"> 
                         SCAN TO APPLY! </p>
-                    <p>We can't wait to see your potential and transform our team together.</p>
+                    <p class=" pr-32 max-[1050px]:pr-0">We can't wait to see your potential and transform our team together.</p>
                 </div>
             </div>
         </div>

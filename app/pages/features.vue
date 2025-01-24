@@ -3,7 +3,7 @@
 </script>
 
 <template>
-    <div>
+    <div class="overflow-hidden">
         <FeaturesHeader />
         <FeaturesOverview />
         <FeaturesSolutions />
