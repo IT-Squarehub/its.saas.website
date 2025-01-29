@@ -108,7 +108,7 @@ const { data: contactData } = await useSanityQuery<ContactDetails>(query)
 
           <div class="space-y-2">
             <label for="message" class="block text-sm font-medium text-gray-700">How Can We Help?</label>
-            <textarea v-model="formData.message" id="message" rows="3"
+            <textarea v-model="formData.message" id="message" rows="5"
               class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-purple-500 focus:border-purple-500"></textarea>
           </div>
 
