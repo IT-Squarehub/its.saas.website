@@ -13,8 +13,6 @@
     asset-> {
     _ref,
     url
-    _ref,
-    url
     },
     alt
   }
