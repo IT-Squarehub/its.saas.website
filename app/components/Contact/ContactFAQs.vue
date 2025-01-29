@@ -42,8 +42,10 @@
 
       <div class="space-y-12">
         <div v-for="(faq, index) in faqItems" :key="index" class="space-y-2" data-aos="fade-up">
-          <h3 class="text-xl font-bold text-gray-900">{{ faq?.question }}</h3>
-          <p class="text-gray-600 leading-relaxed">{{ faq?.answer }}</p>
+          <h3 v-if="faq?.question != null"
+              class="text-xl font-bold text-gray-900">{{ faq?.question }}</h3>
+          <p  v-if="faq?.answer != null"
+              class="text-gray-600 leading-relaxed">{{ faq?.answer }}</p>
         </div>
       </div>
     </div>

@@ -97,8 +97,10 @@ function goToPage(page) {
                     <p class="text-xl">
                         <span class="bg-green-300 rounded-2xl px-4">Available</span>
                     </p>
-                    <p class="text-3xl mt-3">{{ position.name }}</p>
-                    <p class="text-lg">{{ position.description }}</p>
+                    <p  v-if="position.name != null"
+                        class="text-3xl mt-3">{{ position.name }}</p>
+                    <p  v-if="position.description != null"
+                        class="text-lg">{{ position.description }}</p>
                     <p class="text-lg mt-4">
                         <span class="bg-violet-300 rounded-2xl px-4 py-1">
                             <button @click="triggerPopup(position.id)">Apply Now</button>
@@ -113,8 +115,10 @@ function goToPage(page) {
                     <p  class="text-xl ">
                         <span class="bg-slate-300 rounded-2xl px-4">Not Available</span>
                     </p>
-                    <p class="text-3xl mt-3">{{ position.name }}</p>
-                    <p class="text-lg">{{ position.description }}</p>
+                    <p  v-if="position.name != null"
+                        class="text-3xl mt-3">{{ position.name }}</p>
+                    <p  v-if="position.description != null"
+                        class="text-lg">{{ position.description }}</p>
                     <p class="text-lg mt-4">
                         <span class="bg-slate-300 rounded-2xl px-4 py-1">
                             <button >Apply Now</button>

@@ -24,9 +24,12 @@ const { data: careerData, pending, error } = await useSanityQuery(query)
 
         <div class="flex flex-col gap-5 justify-center items-center lg:items-start min-h-[3rem] md:min-h-[6rem] leading-tight md:w-auto lg:w-[40rem] xl:w-[50rem] px-28 lg:px-0">
             <h1 
+                v-if="careerData?.heading != null"
                 data-aos="fade-left"
                 class="text-5xl text-center lg:text-left font-bold text-black z-30">{{ careerData?.heading }}</h1>
-            <p  data-aos="fade-in" data-aos-delay="300"
+            <p  
+                v-if="careerData?.subtitle != null"
+                data-aos="fade-in" data-aos-delay="300"
                 class="text-xl text-center lg:text-left font-Inter font-thin text-black z-30">{{ careerData?.subtitle }}</p>
         </div>
         <img src="/assets/shapes.png" alt="Hero Image"

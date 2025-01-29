@@ -73,8 +73,10 @@ const { data: contactData } = await useSanityQuery<ContactDetails>(query)
       <!-- Contact Form Section -->
       <div class="space-y-6" data-aos="fade-right">
         <div class="space-y-2">
-          <h2 class="text-5xl font-bold text-gray-900">{{ contactData?.form.heading }}</h2>
-          <p class="text-gray-600">{{ contactData?.form.subtitle }}</p>
+          <h2 v-if="contactData?.form.heading != null"
+              class="text-5xl font-bold text-gray-900">{{ contactData?.form.heading }}</h2>
+          <p  v-if="contactData?.form.subtitle != null"
+              class="text-gray-600">{{ contactData?.form.subtitle }}</p>
         </div>
 
         <form @submit.prevent="handleSubmit" class="space-y-4">
@@ -124,10 +126,13 @@ const { data: contactData } = await useSanityQuery<ContactDetails>(query)
           <img :src="contactData?.form.image.asset.url" alt="Contact center team"
             class="absolute inset-0 w-full h-full object-cover" />
           <div class="absolute bottom-8 left-8 right-8 z-20 text-white">
-            <p class="text-2xl font-semibold mb-2">{{ contactData?.form.comment }}</p>
+            <p  v-if="contactData?.form.comment != null"
+                class="text-2xl font-semibold mb-2">{{ contactData?.form.comment }}</p>
             <div class="flex items-center gap-2">
-              <span class="text-base font-bold">{{ contactData?.form.reviewer }}</span>
-              <span class="text-sm">{{ contactData?.form.position }}</span>
+              <span v-if="contactData?.form.reviewer != null"
+                    class="text-base font-bold">{{ contactData?.form.reviewer }}</span>
+              <span v-if="contactData?.form.position != null"
+                    class="text-sm">{{ contactData?.form.position }}</span>
             </div>
           </div>
         </div>
