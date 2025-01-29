@@ -13,6 +13,8 @@
     asset-> {
     _ref,
     url
+    _ref,
+    url
     },
     alt
   }
@@ -94,7 +96,9 @@
               d="M6 18L18 6M6 6l12 12" />
           </svg>
         </button>
-        <div class="hidden lg:flex items-center space-x-8">
+
+        <div class="hidden lg:flex items-center space-x-10">
+          <!-- Home -->
           <div class="relative">
             <NuxtLink to="/" class="px-4 py-2 text-gray-800 hover:text-purple-600 transition-colors">
               Home
@@ -103,6 +107,7 @@
               </div>
             </NuxtLink>
           </div>
+
           <!-- Products -->
           <div class="relative" @click.stop="toggleFeaturesDropdown">
             <div class="px-4 py-2 text-gray-800 hover:text-purple-600 transition-colors cursor-pointer flex items-center">
@@ -136,6 +141,8 @@
               </div>
             </div>
           </div>
+
+          <!-- Pricing -->
           <div class="relative">
             <NuxtLink to="/pricing" class="px-4 py-2 text-gray-800 hover:text-purple-600 transition-colors">
               Pricing
@@ -144,6 +151,8 @@
               </div>
             </NuxtLink>
           </div>
+
+          <!-- Careers -->
           <div class="relative">
             <NuxtLink to="/career" class="px-4 py-2 text-gray-800 hover:text-purple-600 transition-colors">
               Careers
@@ -152,6 +161,8 @@
               </div>
             </NuxtLink>
           </div>
+
+          <!-- Contact Us -->
           <div class="relative">
             <NuxtLink to="/contact" class="px-4 py-2 text-gray-800 hover:text-purple-600 transition-colors">
               Contact Us
@@ -165,9 +176,11 @@
       <Transition name="drop-fade">
         <div v-if="isMenuOpen" class="lg:hidden">
           <div class="flex flex-col space-y-4 px-4 py-5">
+
             <NuxtLink class="text-gray-800 hover:text-purple-600 py-2" to="/" @click="isMenuOpen = false">
               Home
             </NuxtLink>
+
             <div class="relative">
               <div 
                 class="text-gray-800 hover:text-purple-600 py-2 flex justify-between items-center"
@@ -192,14 +205,22 @@
                 </NuxtLink>
               </div>
             </div>
+
+            <NuxtLink class="text-gray-800 hover:text-purple-600 py-2" to="/pricing"
+              @click="isMenuOpen = false">
+              Pricing
+            </NuxtLink>
+
             <NuxtLink class="text-gray-800 hover:text-purple-600 py-2" to="/career"
               @click="isMenuOpen = false">
               Careers
             </NuxtLink>
+
             <NuxtLink class="text-gray-800 hover:text-purple-600 py-2" to="/contact"
               @click="isMenuOpen = false">
               Contact Us
             </NuxtLink>
+            
           </div>
         </div>
       </Transition>
