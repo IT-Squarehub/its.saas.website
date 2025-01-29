@@ -45,7 +45,7 @@ onMounted(() => {
         <div v-else>
             <!-- Left decorative image -->
             <img src="/assets/shapes.png" alt="Hero Image" data-aos="fade-right"
-                class="sm:block sm:w-[13rem] lg:w-80 xl:w-auto hidden absolute top-0 left-0 object-cover" />
+                class="sm:block sm:w-[13rem] lg:w-80 xl:w-96 hidden absolute top-0 left-0 object-cover" />
 
             <!-- Main content -->
             <div class="flex flex-col items-center justify-center gap-4 px-[10%] sm:px-[20%] xl:px-[30%]">
@@ -70,8 +70,10 @@ onMounted(() => {
             </div>
 
             <!-- Right decorative image -->
-            <img src="/assets/shapes.png" alt="Hero Image" data-aos="fade-left"
-                class="sm:block sm:w-[13rem] lg:w-80 xl:w-auto w-40 hidden absolute bottom-0 right-0 object-cover rotate-180" />
+            <div data-aos="fade-left">
+                <NuxtImg src="/assets/shapes.png" alt="Hero Image"
+                    class="sm:block sm:w-[13rem] lg:w-80 xl:w-96 w-40 hidden absolute -bottom-32 right-0 object-cover rotate-180" />
+            </div>
         </div>
     </div>
 </template>

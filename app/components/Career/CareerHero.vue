@@ -32,10 +32,10 @@ const { data: careerData, pending, error } = await useSanityQuery(query)
                 data-aos="fade-in" data-aos-delay="300"
                 class="text-xl text-center lg:text-left font-Inter font-thin text-black z-30">{{ careerData?.subtitle }}</p>
         </div>
-        <img src="/assets/shapes.png" alt="Hero Image"
-            class="sm:w-[13rem] lg:w-96 lg:hidden xl:w-auto w-48 hidden sm:block absolute top-0 left-0 object-cover" />
-        <img src="/assets/shapes.png" alt="Hero Image"
-            class="sm:w-[13rem] lg:w-96 xl:w-auto w-48 hidden sm:block absolute bottom-0 right-0 object-cover rotate-180" />
+        <NuxtImg src="/assets/shapes.png" alt="Hero Image"
+            class="sm:w-[13rem] lg:w-96 lg:hidden xl:w-96 w-48 hidden sm:block absolute top-0 left-0 object-cover" />
+        <NuxtImg src="/assets/shapes.png" alt="Hero Image"
+            class="sm:w-[13rem] lg:w-96 xl:w-96 w-48 hidden sm:block absolute bottom-0 right-0 object-cover rotate-180" />
     </div>
     </div>
 </template>
