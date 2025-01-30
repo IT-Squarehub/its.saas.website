@@ -1,12 +1,12 @@
 <template>
-    <div class="min-h-screen flex flex-col items-center justify-center p-4 md:p-8 bg-gradient-to-br from-purple-900 via-purple-800 to-purple-950">
+    <div class="min-h-screen flex flex-col items-center justify-center p-4 md:p-8 bg-gradient-to-br bg-purple-300 font-InstrumentSans">
         <div class="w-full max-w-3xl mx-auto">
             <!-- Main Error Message -->
             <div class="space-y-4 text-center mb-8 md:mb-12">
-                <h1 class="text-2xl sm:text-3xl md:text-4xl lg:text-6xl font-bold text-white leading-tight max-w-2xl mx-auto">
+                <h1 class="text-2xl sm:text-3xl md:text-4xl lg:text-6xl font-bold text-slate-900 leading-tight max-w-2xl mx-auto">
                     {{ getErrorTitle }}
                 </h1>
-                <p class="text-purple-200 text-lg sm:text-2xl max-w-xl mx-auto">
+                <p class="text-slate-700 text-lg sm:text-2xl max-w-xl mx-auto ">
                     {{ error?.message || getErrorMessage }}
                 </p>
             </div>
@@ -16,7 +16,7 @@
                 <!-- Main glitch effect container -->
                 <div class="relative flex justify-center items-center min-h-[200px] sm:min-h-[250px] md:min-h-[300px]">
                     <!-- Dynamic error number -->
-                    <div class="text-[6rem] sm:text-[8rem] md:text-[10rem] lg:text-[12rem] font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-purple-600 animate-pulse select-none">
+                    <div class="text-[6rem] sm:text-[8rem] md:text-[10rem] lg:text-[12rem] font-bold text-transparent bg-clip-text bg-gradient-to-r text-white animate-pulse select-none">
                         {{ errorCode }}
                     </div>
                     
@@ -48,7 +48,7 @@
             <!-- Footer Message and Button -->
             <div class="max-w-3xl mx-auto px-4">
                 <div class="flex flex-col md:flex-row items-center gap-4 sm:gap-6 md:gap-24">
-                    <p class="text-purple-200 text-center md:text-left text-sm sm:text-base md:text-lg md:flex-1">
+                    <p class="text-slate-700 text-center md:text-left text-sm sm:text-base md:text-lg md:flex-1">
                         {{ getErrorFooter }}
                     </p>
                     <NuxtLink to="/"
