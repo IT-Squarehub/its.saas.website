@@ -54,7 +54,7 @@ onMounted(() => {
             </div>
 
             <!-- Decorative images -->
-            <NuxtImg src="/assets/shapes.png" alt="Hero Image" data-aos="fade-right"
+            <NuxtImg src="/assets/shapes.png" alt="Hero Image"
                 class="sm:w-[13rem] lg:w-96 lg:hidden xl:w-96 w-48 hidden sm:block absolute top-0 left-0 object-cover" />
             <NuxtImg src="/assets/shapes.png" alt="Hero Image"
                 class="sm:w-[13rem] lg:w-96 xl:w-96 w-48 hidden sm:block absolute bottom-0 right-0 object-cover rotate-180" />

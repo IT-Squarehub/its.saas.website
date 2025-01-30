@@ -49,7 +49,7 @@ onMounted(() => {
         <!-- Banner content -->
         <div v-else>
             <!-- Left decorative image -->
-            <NuxtImg src="/assets/shapes.png" alt="Hero Image" data-aos="fade-right"
+            <NuxtImg src="/assets/shapes.png" alt="Hero Image"
                 class="sm:block sm:w-[13rem] lg:w-80 xl:w-96 hidden absolute top-0 left-0 object-cover" />
 
             <!-- Main content -->
@@ -74,10 +74,9 @@ onMounted(() => {
             </div>
 
             <!-- Right decorative image -->
-            <div data-aos="fade-left">
                 <NuxtImg src="/assets/shapes.png" alt="Hero Image"
-                    class="sm:block sm:w-[13rem] lg:w-80 xl:w-w-96 w-40 hidden absolute -bottom-32 right-0 object-cover rotate-180" />
-            </div>
+                    class="sm:block sm:w-[13rem] lg:w-80 xl:w-w-96 w-40 hidden absolute bottom-0 right-0 object-cover rotate-180" />
+
         </div>
     </div>
 </template>

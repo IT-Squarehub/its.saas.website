@@ -31,7 +31,7 @@ onMounted(() => {
 
 <template>
     <div class="relative w-full bg-purple-300 text-white text-center lg:py-40 py-32 overflow-hidden">
-        <img src="/assets/shapes.png" alt="Hero Image" data-aos="fade-right"
+        <NuxtImg src="/assets/shapes.png" alt="Hero Image"
             class="sm:w-[18rem] lg:w-96 xl:w-auto w-56 absolute top-0 left-0 object-cover hidden md:block" />
         <div class="flex flex-col items-center justify-center gap-4 px-[10%] md:px-[28%]">
             <h1 v-if="bannerData?.banner.heading != null" class="text-5xl md:text-6xl font-bold text-black "
@@ -44,9 +44,7 @@ onMounted(() => {
                 class="bg-white text-black font-semibold px-4 py-2 rounded mt-4" data-aos="fade-up">Ask
                 More</NuxtLink>
         </div>
-        <div data-aos="fade-left">
-            <img src="/assets/shapes.png" alt="Hero Image"
-                class="sm:block sm:w-[13rem] lg:w-80 xl:w-auto w-40 hidden absolute -bottom-40 right-0 object-cover rotate-180" />
-        </div>
+            <NuxtImg src="/assets/shapes.png" alt="Hero Image"
+                class="sm:block sm:w-[13rem] lg:w-80 xl:w-auto w-40 hidden absolute bottom-0 right-0 object-cover rotate-180" />
     </div>
 </template>
